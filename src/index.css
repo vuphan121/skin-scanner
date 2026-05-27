@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ── Eucerin brand design tokens ── */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Brand palette */
+  --color-primary:          oklch(0.4 0.15 15);
+  --color-primary-foreground: oklch(1 0 0);
+  --color-foreground:       oklch(0.2 0.02 250);
+  --color-background:       oklch(0.99 0.002 90);
+  --color-muted:            oklch(0.96 0.005 90);
+  --color-muted-foreground: oklch(0.5 0.02 250);
+  --color-card:             oklch(1 0 0);
+  --color-card-foreground:  oklch(0.2 0.02 250);
+  --color-border:           oklch(0.92 0.005 90);
+  --color-input:            oklch(0.92 0.005 90);
+  --color-ring:             oklch(0.4 0.15 15);
+
+  /* Radius scale */
+  --radius-sm:   8px;
+  --radius-md:  10px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 20px;
+}
+
+/* ── Base resets ── */
+/* NOTE: Tailwind v4's @layer base already resets box-sizing / margin / padding.
+   Do NOT add an unlayered * reset here — it would override all Tailwind padding
+   and margin utilities (unlayered styles always beat @layer utilities). */
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: oklch(0.99 0.002 90);
+  color: oklch(0.2 0.02 250);
+}
+
+#root { min-height: 100vh; }
+
+/* ── Animations ── */
+@keyframes spin    { to { transform: rotate(360deg); } }
+@keyframes scanLine {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+.scan-line {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, oklch(0.4 0.15 15), transparent);
+  animation: scanLine 1.8s ease-in-out infinite alternate;
+  box-shadow: 0 0 8px oklch(0.4 0.15 15 / 0.5);
+}
+
+.spinner {
+  width: 28px; height: 28px;
+  border: 2.5px solid oklch(0.92 0.005 90);
+  border-top-color: oklch(0.4 0.15 15);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
