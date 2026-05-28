@@ -1285,6 +1285,35 @@ function ScanningStep({ photos, lang, onComplete }) {
 /* ═══════════════════════════════════════════════
    STEP 4 — Results
 ═══════════════════════════════════════════════ */
+
+// Bilingual labels for concern tags shown on product cards
+const CONCERN_TAG_LABELS = {
+  'acne':                  { vi: 'Mụn',                      en: 'Acne'                  },
+  'excess oil':            { vi: 'Dầu thừa',                 en: 'Excess Oil'             },
+  'clogged pores':         { vi: 'Lỗ chân lông tắc',        en: 'Clogged Pores'          },
+  'blackheads':            { vi: 'Mụn đầu đen',              en: 'Blackheads'             },
+  'large pores':           { vi: 'Lỗ chân lông to',          en: 'Large Pores'            },
+  'texture':               { vi: 'Kết cấu da',               en: 'Texture'               },
+  'dark spots':            { vi: 'Đốm nâu',                  en: 'Dark Spots'             },
+  'hyperpigmentation':     { vi: 'Tăng sắc tố',              en: 'Hyperpigmentation'      },
+  'melasma':               { vi: 'Nám',                      en: 'Melasma'               },
+  'post-acne dark spots':  { vi: 'Thâm sau mụn',             en: 'Post-Acne Dark Spots'  },
+  'uneven skin tone':      { vi: 'Da không đều màu',         en: 'Uneven Skin Tone'       },
+  'dull skin':             { vi: 'Da xỉn màu',               en: 'Dull Skin'             },
+  'fine lines':            { vi: 'Nếp nhăn nhỏ',             en: 'Fine Lines'             },
+  'wrinkles':              { vi: 'Nếp nhăn',                 en: 'Wrinkles'              },
+  'anti-aging':            { vi: 'Chống lão hóa',            en: 'Anti-Aging'             },
+  'firmness':              { vi: 'Độ săn chắc',              en: 'Firmness'              },
+  'hydration':             { vi: 'Độ ẩm',                    en: 'Hydration'             },
+  'radiance':              { vi: 'Độ rạng rỡ',               en: 'Radiance'              },
+  'dehydration':           { vi: 'Thiếu nước',               en: 'Dehydration'           },
+  'dryness':               { vi: 'Da khô',                   en: 'Dryness'               },
+  'sensitive skin':        { vi: 'Da nhạy cảm',              en: 'Sensitive Skin'         },
+  'irritation':            { vi: 'Kích ứng',                 en: 'Irritation'            },
+  'redness':               { vi: 'Da đỏ',                    en: 'Redness'               },
+  'UV protection':         { vi: 'Chống nắng',               en: 'UV Protection'          },
+}
+
 const SCORE_ITEMS = [
   { key: 'hydration',    icon: Droplets, label: { vi: 'Độ Ẩm',              en: 'Hydration'      }, isPositive: true  },
   { key: 'firmness',     icon: Activity, label: { vi: 'Độ Săn Chắc',        en: 'Firmness'       }, isPositive: true  },
@@ -2390,7 +2419,7 @@ function ProductsStep({ aiAnalysis, lang, onRescan }) {
                   <div className="flex flex-wrap gap-1">
                     {product.concernTags.slice(0, 4).map(tag => (
                       <span key={tag} className="rounded-full border border-border px-2 py-0.5 text-xs text-foreground">
-                        {tag}
+                        {CONCERN_TAG_LABELS[tag]?.[lang] || tag}
                       </span>
                     ))}
                   </div>
