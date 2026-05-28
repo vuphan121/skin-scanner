@@ -109,17 +109,28 @@ SKIN TYPE — assign exactly one:
 DETECTABLE CONCERNS — only what you can see in the photos OR is confirmed by form:
 acne | excess oil | clogged pores | blackheads | dark spots | hyperpigmentation | melasma | post-acne dark spots | dryness | dehydration | sensitive skin | irritation | redness | anti-aging | fine lines | wrinkles | dull skin | uneven skin tone | large pores | UV protection
 
-SKIN SCORES — rate each dimension 0–100 (higher = better skin health):
-- hydration:  moisture level visible in skin plumpness and texture
-- firmness:   skin elasticity and absence of sagging or fine lines
-- radiance:   overall glow, brightness and evenness of complexion
-- evenness:   uniformity of skin tone, absence of dark spots or redness
-- clarity:    absence of blemishes, acne, clogged pores, and breakouts
+SKIN AGE — estimate the visible cosmetic skin age as an integer (may differ from chronological age based on visible signs of aging, hydration, texture, and radiance).
+
+AI CONFIDENCE — your confidence in this assessment as a percentage (0–100), based on photo quality and visibility.
+
+MAIN CONCERN — one short phrase (max 8 words) summarizing the user's single most notable skin concern visible in the photos.
+
+SKIN SCORES — rate each dimension 0–100:
+- hydration (0–100, higher = better): moisture level visible in skin plumpness and texture
+- firmness  (0–100, higher = better): skin elasticity and absence of sagging
+- radiance  (0–100, higher = better): overall glow, brightness and complexion evenness
+- texture   (0–100, higher = MORE concern): roughness, unevenness of skin surface
+- fineLines (0–100, higher = MORE concern): visibility of fine lines and wrinkles
+- darkSpots (0–100, higher = MORE concern): presence of dark spots, hyperpigmentation, uneven tone
+- barrierHealth (0–100, higher = better): skin barrier strength — absence of redness, sensitivity, or irritation
 
 Respond ONLY with valid JSON (no markdown):
 {
   "faceDetected": true,
+  "skinAge": <integer>,
+  "confidence": <0-100>,
   "skinType": "<skin type>",
+  "primaryConcern": "<one short phrase>",
   "detectedConcerns": ["<concern1>", "<concern2>"],
   "headline": "<6–10 words describing this person's skin>",
   "description": "<2–3 sentences about visible characteristics across all three angles>",
@@ -129,8 +140,10 @@ Respond ONLY with valid JSON (no markdown):
     "hydration": <0-100>,
     "firmness": <0-100>,
     "radiance": <0-100>,
-    "evenness": <0-100>,
-    "clarity": <0-100>
+    "texture": <0-100>,
+    "fineLines": <0-100>,
+    "darkSpots": <0-100>,
+    "barrierHealth": <0-100>
   }
 }`
 
@@ -139,7 +152,7 @@ Respond ONLY with valid JSON (no markdown):
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
       model: 'gpt-4o',
-      max_tokens: 800,
+      max_tokens: 1000,
       messages: [{
         role: 'user',
         content: [
