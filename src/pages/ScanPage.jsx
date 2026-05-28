@@ -705,46 +705,9 @@ function CameraStep({ onCapture, lang }) {
             {/* ── CAMERA mode ── */}
             {!uploadMode && (
               <>
-                {/* Idle */}
-                {cameraPhase === 'idle' && (
+                {/* Validating overlay — top priority, shown regardless of camera phase */}
+                {validating ? (
                   <>
-                    <div style={{ border: '2px dashed oklch(0.85 0.005 90)', borderRadius: '0.875rem', padding: '2rem 1rem', textAlign: 'center', background: 'oklch(0.985 0.001 90)', marginBottom: '0.875rem' }}>
-                      <div style={{ width: '3rem', height: '3rem', borderRadius: '50%', background: 'oklch(0.93 0.003 90)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 0.75rem' }}>
-                        <Camera style={{ width: '1.5rem', height: '1.5rem', color: 'oklch(0.55 0.02 250)' }} />
-                      </div>
-                      <p style={{ fontSize: '0.875rem', color: 'oklch(0.55 0.02 250)', margin: 0 }}>{t.cameraIdle}</p>
-                    </div>
-                    <TipsGrid />
-                    <button onClick={startCamera} style={{ ...S.btnPri, marginTop: '0.875rem' }}>
-                      <Camera style={{ width: '1rem', height: '1rem' }} />{t.startCamera}
-                    </button>
-                  </>
-                )}
-
-                {/* Loading */}
-                {cameraPhase === 'loading' && (
-                  <div style={{ padding: '2.5rem 1rem', textAlign: 'center' }}>
-                    <Loader2 style={{ width: '2.5rem', height: '2.5rem', color: PRIMARY_COLOR, margin: '0 auto 0.75rem', display: 'block' }} className="animate-spin" />
-                    <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'oklch(0.2 0.02 250)', margin: '0 0 0.25rem' }}>{t.cameraLoading}</p>
-                    <p style={{ fontSize: '0.75rem', color: 'oklch(0.55 0.02 250)', margin: 0 }}>{t.cameraLoadingHint}</p>
-                  </div>
-                )}
-
-                {/* Error */}
-                {cameraPhase === 'error' && (
-                  <>
-                    <div style={{ display: 'flex', gap: '0.75rem', padding: '0.875rem', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '0.75rem', marginBottom: '0.875rem' }}>
-                      <AlertCircle style={{ width: '1.25rem', height: '1.25rem', color: '#ef4444', flexShrink: 0, marginTop: '0.1rem' }} />
-                      <p style={{ fontSize: '0.875rem', color: '#b91c1c', margin: 0, lineHeight: 1.5 }}>{cameraError}</p>
-                    </div>
-                    <button onClick={startCamera} style={S.btnPri}>{t.tryAgain}</button>
-                  </>
-                )}
-
-                {/* Live feed — always in DOM when camera mode active */}
-                <div style={{ display: cameraPhase === 'live' ? 'block' : 'none' }}>
-                  {/* Validating overlay — scan animation over captured photo */}
-                  {validating ? (
                     <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', aspectRatio: '4/3', marginBottom: '0.875rem', background: '#000' }}>
                       {pendingPhoto && <img src={pendingPhoto} alt="checking" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.65 }} />}
                       <div style={{ position: 'absolute', inset: 0, background: `${PRIMARY_COLOR}18` }} />
@@ -754,32 +717,84 @@ function CameraStep({ onCapture, lang }) {
                         <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>{t.validating}</span>
                       </div>
                     </div>
-                  ) : validError ? (
-                    <div style={{ width: '100%', minHeight: '12rem', background: '#fef2f2', border: '2px solid #fecaca', borderRadius: '0.875rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1.5rem', textAlign: 'center', marginBottom: '0.875rem' }}>
-                      <AlertCircle style={{ width: '2rem', height: '2rem', color: '#ef4444' }} />
-                      <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#b91c1c', margin: 0 }}>{t.validErr}</p>
-                      <p style={{ fontSize: '0.8125rem', color: '#dc2626', margin: 0, lineHeight: 1.5 }}>{validError}</p>
-                    </div>
-                  ) : (
-                    <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', background: 'black', aspectRatio: '4/3', marginBottom: '0.875rem' }}>
-                      <video ref={videoRef} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }} muted playsInline />
-                      <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                        <div style={{ width: '40%', height: '55%', borderRadius: '50%', border: '2px dashed rgba(255,255,255,0.75)', boxShadow: '0 0 0 9999px rgba(0,0,0,0.4)' }} />
-                        <div style={{ position: 'absolute', bottom: '0.75rem', background: 'rgba(0,0,0,0.5)', color: 'white', fontSize: '0.75rem', padding: '0.25rem 0.75rem', borderRadius: '999px' }}>
-                          {t.photoCount(captureIdx + 1)} — {angle.label}
+                    <button disabled style={{ ...S.btnPri, opacity: 0.5, cursor: 'not-allowed' }}>
+                      <Camera style={{ width: '1rem', height: '1rem' }} />
+                      {t.validating}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {/* Idle */}
+                    {cameraPhase === 'idle' && !validError && (
+                      <>
+                        <div style={{ border: '2px dashed oklch(0.85 0.005 90)', borderRadius: '0.875rem', padding: '2rem 1rem', textAlign: 'center', background: 'oklch(0.985 0.001 90)', marginBottom: '0.875rem' }}>
+                          <div style={{ width: '3rem', height: '3rem', borderRadius: '50%', background: 'oklch(0.93 0.003 90)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 0.75rem' }}>
+                            <Camera style={{ width: '1.5rem', height: '1.5rem', color: 'oklch(0.55 0.02 250)' }} />
+                          </div>
+                          <p style={{ fontSize: '0.875rem', color: 'oklch(0.55 0.02 250)', margin: 0 }}>{t.cameraIdle}</p>
+                        </div>
+                        <TipsGrid />
+                        <button onClick={startCamera} style={{ ...S.btnPri, marginTop: '0.875rem' }}>
+                          <Camera style={{ width: '1rem', height: '1rem' }} />{t.startCamera}
+                        </button>
+                      </>
+                    )}
+
+                    {/* Loading */}
+                    {cameraPhase === 'loading' && (
+                      <div style={{ padding: '2.5rem 1rem', textAlign: 'center' }}>
+                        <Loader2 style={{ width: '2.5rem', height: '2.5rem', color: PRIMARY_COLOR, margin: '0 auto 0.75rem', display: 'block' }} className="animate-spin" />
+                        <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'oklch(0.2 0.02 250)', margin: '0 0 0.25rem' }}>{t.cameraLoading}</p>
+                        <p style={{ fontSize: '0.75rem', color: 'oklch(0.55 0.02 250)', margin: 0 }}>{t.cameraLoadingHint}</p>
+                      </div>
+                    )}
+
+                    {/* Camera error */}
+                    {cameraPhase === 'error' && (
+                      <>
+                        <div style={{ display: 'flex', gap: '0.75rem', padding: '0.875rem', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '0.75rem', marginBottom: '0.875rem' }}>
+                          <AlertCircle style={{ width: '1.25rem', height: '1.25rem', color: '#ef4444', flexShrink: 0, marginTop: '0.1rem' }} />
+                          <p style={{ fontSize: '0.875rem', color: '#b91c1c', margin: 0, lineHeight: 1.5 }}>{cameraError}</p>
+                        </div>
+                        <button onClick={startCamera} style={S.btnPri}>{t.tryAgain}</button>
+                      </>
+                    )}
+
+                    {/* Validation error */}
+                    {validError && (
+                      <>
+                        <div style={{ width: '100%', minHeight: '12rem', background: '#fef2f2', border: '2px solid #fecaca', borderRadius: '0.875rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1.5rem', textAlign: 'center', marginBottom: '0.875rem' }}>
+                          <AlertCircle style={{ width: '2rem', height: '2rem', color: '#ef4444' }} />
+                          <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#b91c1c', margin: 0 }}>{t.validErr}</p>
+                          <p style={{ fontSize: '0.8125rem', color: '#dc2626', margin: 0, lineHeight: 1.5 }}>{validError}</p>
+                        </div>
+                        <button onClick={() => { setValidError(''); startCamera() }} style={S.btnPri}>
+                          <Camera style={{ width: '1rem', height: '1rem' }} />{t.retakePhoto}
+                        </button>
+                      </>
+                    )}
+
+                    {/* Live feed — always in DOM so video element is ready */}
+                    <div style={{ display: cameraPhase === 'live' ? 'block' : 'none' }}>
+                      <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', background: 'black', aspectRatio: '4/3', marginBottom: '0.875rem' }}>
+                        <video ref={videoRef} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }} muted playsInline />
+                        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
+                          <div style={{ width: '40%', height: '55%', borderRadius: '50%', border: '2px dashed rgba(255,255,255,0.75)', boxShadow: '0 0 0 9999px rgba(0,0,0,0.4)' }} />
+                          <div style={{ position: 'absolute', bottom: '0.75rem', background: 'rgba(0,0,0,0.5)', color: 'white', fontSize: '0.75rem', padding: '0.25rem 0.75rem', borderRadius: '999px' }}>
+                            {t.photoCount(captureIdx + 1)} — {angle.label}
+                          </div>
                         </div>
                       </div>
+                      <button
+                        onClick={() => { setValidError(''); captureFromCamera() }}
+                        style={S.btnPri}
+                      >
+                        <Camera style={{ width: '1rem', height: '1rem' }} />
+                        {`${t.takePhoto} ${captureIdx + 1}`}
+                      </button>
                     </div>
-                  )}
-                  <button
-                    disabled={validating}
-                    onClick={() => { if (!validating) { setValidError(''); if (validError) startCamera(); else captureFromCamera() } }}
-                    style={{ ...S.btnPri, opacity: validating ? 0.5 : 1, cursor: validating ? 'not-allowed' : 'pointer' }}
-                  >
-                    <Camera style={{ width: '1rem', height: '1rem' }} />
-                    {validError ? t.retakePhoto : `${t.takePhoto} ${captureIdx + 1}`}
-                  </button>
-                </div>
+                  </>
+                )}
               </>
             )}
 
