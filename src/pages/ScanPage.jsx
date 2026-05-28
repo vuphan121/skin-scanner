@@ -780,7 +780,7 @@ function CameraStep({ onCapture, lang }) {
                       <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', background: 'black', aspectRatio: '4/3', marginBottom: '0.875rem' }}>
                         <video ref={videoRef} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }} muted playsInline />
                         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none' }}>
-                          <div style={{ width: '40%', height: '55%', borderRadius: '50%', border: '2px dashed rgba(255,255,255,0.75)', boxShadow: '0 0 0 9999px rgba(0,0,0,0.4)' }} />
+                          <div style={{ width: '62%', height: '78%', borderRadius: '50%', border: '2px dashed rgba(255,255,255,0.75)', boxShadow: '0 0 0 9999px rgba(0,0,0,0.4)' }} />
                           <div style={{ position: 'absolute', bottom: '0.75rem', background: 'rgba(0,0,0,0.5)', color: 'white', fontSize: '0.75rem', padding: '0.25rem 0.75rem', borderRadius: '999px' }}>
                             {t.photoCount(captureIdx + 1)} — {angle.label}
                           </div>
