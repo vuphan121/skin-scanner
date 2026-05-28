@@ -431,6 +431,7 @@ function CameraStep({ onCapture, lang }) {
   const [cameraError,  setCameraError] = useState('')
   const [validating,   setValidating]  = useState(false)  // checking current photo with AI
   const [validError,   setValidError]  = useState('')     // error message from validation
+  const [pendingPhoto, setPendingPhoto] = useState(null)  // URL being validated (for animation)
 
   const fileInputRef = useRef(null)
   const videoRef     = useRef(null)
@@ -479,6 +480,7 @@ function CameraStep({ onCapture, lang }) {
   // ── Shared: validate + save a photo dataUrl ────────────────────────
   const acceptPhoto = useCallback(async (url, idx) => {
     setValidating(true)
+    setPendingPhoto(url)
     setValidError('')
     try {
       const result = await validatePhoto(url)
@@ -494,6 +496,7 @@ function CameraStep({ onCapture, lang }) {
       if (idx < 2) setCaptureIdx(i => i + 1)
     } finally {
       setValidating(false)
+      setPendingPhoto(null)
     }
   }, [t.validErr])
 
@@ -628,11 +631,16 @@ function CameraStep({ onCapture, lang }) {
               <>
                 <input ref={fileInputRef} type="file" accept="image/jpeg,image/png" style={{ display: 'none' }} onChange={e => { handleFile(e.target.files[0]); e.target.value = '' }} />
 
-                {/* Validating overlay */}
+                {/* Validating overlay — scan animation over the photo */}
                 {validating ? (
-                  <div style={{ borderRadius: '0.875rem', padding: '3rem 1rem', textAlign: 'center', background: 'oklch(0.985 0.001 90)', marginBottom: '0.875rem', border: '2px solid oklch(0.85 0.005 90)' }}>
-                    <Loader2 style={{ width: '2rem', height: '2rem', color: PRIMARY_COLOR, margin: '0 auto 0.75rem', display: 'block' }} className="animate-spin" />
-                    <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'oklch(0.2 0.02 250)', margin: 0 }}>{t.validating}</p>
+                  <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', aspectRatio: '4/3', marginBottom: '0.875rem', background: '#000' }}>
+                    {pendingPhoto && <img src={pendingPhoto} alt="checking" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.65 }} />}
+                    <div style={{ position: 'absolute', inset: 0, background: `${PRIMARY_COLOR}18` }} />
+                    <div className="scan-line" style={{ position: 'absolute', left: 0, right: 0 }} />
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '0.75rem 1rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.72))', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                      <Loader2 style={{ width: '0.9rem', height: '0.9rem', color: 'white', flexShrink: 0 }} className="animate-spin" />
+                      <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>{t.validating}</span>
+                    </div>
                   </div>
                 ) : validError ? (
                   /* Validation error — show the image dimmed with error overlay */
@@ -735,11 +743,16 @@ function CameraStep({ onCapture, lang }) {
 
                 {/* Live feed — always in DOM when camera mode active */}
                 <div style={{ display: cameraPhase === 'live' ? 'block' : 'none' }}>
-                  {/* Validating overlay replaces the video feed */}
+                  {/* Validating overlay — scan animation over captured photo */}
                   {validating ? (
-                    <div style={{ borderRadius: '0.875rem', padding: '3rem 1rem', textAlign: 'center', background: 'oklch(0.985 0.001 90)', marginBottom: '0.875rem', border: '2px solid oklch(0.85 0.005 90)' }}>
-                      <Loader2 style={{ width: '2rem', height: '2rem', color: PRIMARY_COLOR, margin: '0 auto 0.75rem', display: 'block' }} className="animate-spin" />
-                      <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'oklch(0.2 0.02 250)', margin: 0 }}>{t.validating}</p>
+                    <div style={{ position: 'relative', borderRadius: '0.875rem', overflow: 'hidden', aspectRatio: '4/3', marginBottom: '0.875rem', background: '#000' }}>
+                      {pendingPhoto && <img src={pendingPhoto} alt="checking" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.65 }} />}
+                      <div style={{ position: 'absolute', inset: 0, background: `${PRIMARY_COLOR}18` }} />
+                      <div className="scan-line" style={{ position: 'absolute', left: 0, right: 0 }} />
+                      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '0.75rem 1rem', background: 'linear-gradient(transparent, rgba(0,0,0,0.72))', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                        <Loader2 style={{ width: '0.9rem', height: '0.9rem', color: 'white', flexShrink: 0 }} className="animate-spin" />
+                        <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>{t.validating}</span>
+                      </div>
                     </div>
                   ) : validError ? (
                     <div style={{ width: '100%', minHeight: '12rem', background: '#fef2f2', border: '2px solid #fecaca', borderRadius: '0.875rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1.5rem', textAlign: 'center', marginBottom: '0.875rem' }}>
@@ -1422,7 +1435,7 @@ const EUCERIN_PRODUCTS = [
     concernTags: ['hydration', 'fine lines', 'firmness', 'radiance', 'texture', 'anti-aging'],
     imageUrl: 'https://www.eucerin.vn/media/d/a/daca8ee6-7c74-4c9e-bf4c-1bc33d26af3e-image-hyaluron-filler-epicelline-serum-image-1.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/epicelline-serum',
-    shopeeUrl: 'https://shopee.vn/Tinh-Ch%E1%BA%A5t-Ch%E1%BB%91ng-L%C3%A3o-H%C3%B3a-Eucerin-Hyaluron-Filler-Epicelline-Serum-30ml-i.58095251.23866549565',
+    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+hyaluron+filler+epicelline+serum',
     shortDescription: {
       vi: 'Được gợi ý như serum chủ lực khi hồ sơ da cho thấy dấu hiệu mất nước, nếp nhăn nhỏ, độ săn chắc giảm, kết cấu da chưa đều hoặc độ rạng rỡ thấp.',
       en: 'Recommended as the hero serum when the skin profile shows visible dehydration, fine lines, reduced firmness, uneven texture, or lower radiance.',
@@ -1437,7 +1450,7 @@ const EUCERIN_PRODUCTS = [
     concernTags: ['dark spots', 'uneven tone', 'radiance', 'brightening'],
     imageUrl: 'https://www.eucerin.vn/media/6/5/651ba8ae-c39f-4ed2-beda-a4a04dc0b3df-image-anti-pigment-dual-serum.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/anti-pigment/dual-serum',
-    shopeeUrl: 'https://shopee.vn/Tinh-Ch%E1%BA%A5t-Gi%E1%BA%A3m-%C4%90%E1%BB%91m-N%C3%A2u-Eucerin-Anti-Pigment-Dual-Serum-30ml-i.58095251.22066546628',
+    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+anti+pigment+dual+serum',
     shortDescription: {
       vi: 'Được gợi ý khi hồ sơ da cho thấy đốm nâu có thể quan sát, da không đều màu hoặc xỉn màu.',
       en: 'Recommended when the skin profile shows visible dark spots, uneven tone, or dullness.',
@@ -1452,7 +1465,7 @@ const EUCERIN_PRODUCTS = [
     concernTags: ['SPF', 'dark spots', 'anti-aging', 'barrier protection', 'radiance'],
     imageUrl: 'https://www.eucerin.vn/media/7/1/71a0e0a0-2a6e-4cfc-8fcd-00c9bc0e0e59-image-sun-fluid-anti-age.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-anti-age-spf50',
-    shopeeUrl: 'https://shopee.vn/Kem-Ch%E1%BB%91ng-N%E1%BA%AFng-Eucerin-Sun-Fluid-Anti-Age-SPF50-50ml-i.58095251.15566746123',
+    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+sun+fluid+anti+age+spf50',
     shortDescription: {
       vi: 'Được gợi ý để hỗ trợ bảo vệ da trước tia UV, một yếu tố có thể góp phần làm xuất hiện dấu hiệu lão hóa, xỉn màu và đốm nâu.',
       en: 'Recommended to help protect skin from UV exposure, which can contribute to visible aging signs, dullness, and dark spots.',
@@ -1467,7 +1480,7 @@ const EUCERIN_PRODUCTS = [
     concernTags: ['hydration', 'plumping', 'fine lines', 'anti-aging'],
     imageUrl: 'https://www.eucerin.vn/media/a/4/a4c4e0e0-2a6e-4cfc-8fcd-00c9bc0e0e59-image-hyaluron-filler-day-cream.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/day-cream-spf30',
-    shopeeUrl: 'https://shopee.vn/Kem-D%C6%B0%E1%BB%A1ng-Ch%E1%BB%91ng-L%C3%A3o-H%C3%B3a-Ban-Ng%C3%A0y-Eucerin-Hyaluron-Filler-Day-Cream-SPF30-50ml-i.58095251.12766546123',
+    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+hyaluron+filler+day+cream+spf30',
     shortDescription: {
       vi: 'Được gợi ý để hỗ trợ cấp ẩm hằng ngày và bổ trợ cho bước serum chống lão hóa.',
       en: 'Recommended to support daily moisture and complement the anti-aging serum step.',
@@ -1509,9 +1522,10 @@ function getRecommendedProducts(scores = {}, detectedConcerns = []) {
 
 function ScoreBar({ item, score, lang = 'vi' }) {
   const bar = score ?? 0
-  const color = item.isPositive
-    ? (bar >= 50 ? 'bg-yellow-500' : 'bg-primary')
-    : (bar <= 50 ? 'bg-yellow-500' : 'bg-primary')
+  // For positive metrics: low=bad(red), mid=yellow, high=good(green)
+  // For negative metrics: low=good(green), mid=yellow, high=bad(red)
+  const goodness = item.isPositive ? bar : (100 - bar)
+  const color = goodness >= 67 ? 'bg-green-500' : goodness >= 34 ? 'bg-yellow-500' : 'bg-primary'
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
@@ -1820,9 +1834,6 @@ function ProductsStep({ aiAnalysis, lang, onRescan }) {
                 <div className="space-y-4 p-5">
                   <div>
                     <h3 className="mb-1 text-lg font-bold text-foreground">{product.name}</h3>
-                    {product.price && (
-                      <p className="text-lg font-bold text-primary">{product.price}</p>
-                    )}
                   </div>
 
                   <p className="text-sm leading-relaxed text-muted-foreground">
@@ -1846,7 +1857,7 @@ function ProductsStep({ aiAnalysis, lang, onRescan }) {
                   {/* Action buttons */}
                   <div className="flex gap-2 pt-2">
                     <a
-                      href={product.eucerinUrl}
+                      href="https://www.eucerin.vn/san-pham"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-1 items-center justify-center gap-1 rounded-lg border border-border bg-transparent px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"

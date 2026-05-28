@@ -9,13 +9,16 @@ export async function validatePhoto(dataUrl) {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY
   if (!apiKey) throw new Error('No API key — set VITE_OPENAI_API_KEY in .env')
 
-  const prompt = `You are checking whether a selfie is usable for skin analysis.
+  const prompt = `You are checking whether a photo is a usable human selfie for skin analysis.
 
-ACCEPT the photo if it shows a human face — even if it is slightly blurry, dimly lit, has motion blur, uneven lighting, glasses, or is taken at an angle. Real selfies are rarely perfect; that is fine.
+ACCEPT the photo ONLY if it shows a HUMAN face. Minor imperfections are fine: slight blur, low light, glasses, angle, motion blur, shadows — all acceptable for real selfies.
 
-REJECT the photo ONLY if:
-1. There is clearly NO human face in the image (e.g. a wall, object, pet, or completely blank image)
-2. The face is so severely blurry or dark that NO facial features (eyes, nose, mouth) can be distinguished at all
+REJECT the photo if ANY of the following is true:
+1. The subject is NOT a human — this includes cats, dogs, or any other animal, cartoons, drawings, illustrations, or non-human faces
+2. There is no face at all (blank image, wall, object, background only)
+3. The face is so severely blurry or dark that no human facial features (eyes, nose, mouth) can be distinguished
+
+Important: A cat face, dog face, or any animal face must ALWAYS be rejected. Only real human faces are accepted.
 
 Respond ONLY with valid JSON, no markdown:
 { "valid": true }
