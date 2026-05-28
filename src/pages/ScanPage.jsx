@@ -1480,67 +1480,357 @@ const SEND_CONTENT = {
   },
 }
 
-// ── Eucerin product catalogue ─────────────────────────────────────────
+// ── Eucerin product catalogue (26 products, source: eucerin_vietnam_face_products.xlsx) ──
 const EUCERIN_PRODUCTS = [
   {
     id: 'epicelline-serum',
     name: 'Eucerin Hyaluron-Filler Epicelline Serum',
-    category: { vi: 'Serum Chống Lão Hóa Chủ Lực', en: 'Hero Anti-Aging Serum' },
-    concernTags: ['hydration', 'fine lines', 'firmness', 'radiance', 'texture', 'anti-aging'],
+    category: { vi: 'Tinh Chất Chống Lão Hóa Thế Hệ Mới', en: 'Next-Gen Anti-Aging Serum' },
+    concernTags: ['anti-aging', 'fine lines', 'wrinkles', 'firmness', 'hydration', 'radiance', 'texture'],
     imageUrl: 'https://www.eucerin.vn/media/d/a/daca8ee6-7c74-4c9e-bf4c-1bc33d26af3e-image-hyaluron-filler-epicelline-serum-image-1.png?im=Resize,width=400',
-    eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/epicelline-serum',
-    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+hyaluron+filler+epicelline+serum',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham',
+    shopeeUrl: 'https://shopee.vn/Tinh-ch%E1%BA%A5t-gi%C3%BAp-gi%E1%BA%A3m-d%E1%BA%A5u-hi%E1%BB%87u-l%C3%A3o-h%C3%B3a-Eucerin-Hyaluron-Filler-Epicelline-Serum-30ml-i.82297261.26173166984',
     shortDescription: {
-      vi: 'Được gợi ý như serum chủ lực khi hồ sơ da cho thấy dấu hiệu mất nước, nếp nhăn nhỏ, độ săn chắc giảm, kết cấu da chưa đều hoặc độ rạng rỡ thấp.',
-      en: 'Recommended as the hero serum when the skin profile shows visible dehydration, fine lines, reduced firmness, uneven texture, or lower radiance.',
+      vi: 'Tinh chất với công nghệ Age Clock và Epicelline, hỗ trợ giảm nếp nhăn, tăng săn chắc và cải thiện vẻ trẻ trung sau 4 tuần.',
+      en: 'Age Clock + Epicelline serum that reduces wrinkles, improves firmness and skin youthfulness in 4 weeks.',
     },
-    usageStep: { vi: 'Bước serum, dùng buổi sáng và buổi tối', en: 'Serum step, morning and night' },
-    price: '1.200.000đ',
+    usageStep: { vi: 'Bước serum, sáng và tối', en: 'Serum step, morning and night' },
   },
   {
-    id: 'anti-pigment-dual-serum',
-    name: 'Eucerin Anti-Pigment Dual Serum',
-    category: { vi: 'Hỗ Trợ Cải Thiện Đốm Nâu', en: 'Dark Spot Support' },
-    concernTags: ['dark spots', 'uneven tone', 'radiance', 'brightening'],
-    imageUrl: 'https://www.eucerin.vn/media/6/5/651ba8ae-c39f-4ed2-beda-a4a04dc0b3df-image-anti-pigment-dual-serum.png?im=Resize,width=400',
-    eucerinUrl: 'https://www.eucerin.vn/san-pham/anti-pigment/dual-serum',
-    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+anti+pigment+dual+serum',
+    id: 'dermopure-cleanser',
+    name: 'Eucerin DermoPure Clinical Cleanser',
+    category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Gel Cleanser' },
+    concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'large pores', 'texture'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/cleanser',
+    shopeeUrl: 'https://shopee.vn/Gel-r%E1%BB%ADa-m%E1%BA%B7t-Eucerin%C2%AE-DermoPure-Clinical-Purifying-Cleanser-200ml-i.82297261.1464762135',
     shortDescription: {
-      vi: 'Được gợi ý khi hồ sơ da cho thấy đốm nâu có thể quan sát, da không đều màu hoặc xỉn màu.',
-      en: 'Recommended when the skin profile shows visible dark spots, uneven tone, or dullness.',
+      vi: 'Gel rửa mặt không gây bít tắc lỗ chân lông, làm sạch dịu nhẹ bã nhờn và bụi bẩn, giúp da sạch và thông thoáng.',
+      en: 'Non-comedogenic gel cleanser that gently removes excess oil and impurities, keeping skin clear and breathable.',
     },
-    usageStep: { vi: 'Bước serum hỗ trợ chuyên biệt', en: 'Targeted serum step' },
-    price: '990.000đ',
+    usageStep: { vi: 'Bước làm sạch, sáng và tối', en: 'Cleansing step, morning and night' },
   },
   {
-    id: 'sun-fluid-anti-age',
-    name: 'Eucerin Sun Fluid Anti-Age SPF50+',
-    category: { vi: 'Bảo Vệ Da Hằng Ngày Trước Tia UV', en: 'Daily UV Protection' },
-    concernTags: ['SPF', 'dark spots', 'anti-aging', 'barrier protection', 'radiance'],
-    imageUrl: 'https://www.eucerin.vn/media/7/1/71a0e0a0-2a6e-4cfc-8fcd-00c9bc0e0e59-image-sun-fluid-anti-age.png?im=Resize,width=400',
-    eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-anti-age-spf50',
-    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+sun+fluid+anti+age+spf50',
+    id: 'dermopure-scrub',
+    name: 'Eucerin DermoPure Clinical Scrub',
+    category: { vi: 'Tẩy Tế Bào Chết Da Mụn', en: 'Acne Skin Exfoliating Scrub' },
+    concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores', 'texture'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/scrub',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=DermoPure+Clinical+Scrub',
     shortDescription: {
-      vi: 'Được gợi ý để hỗ trợ bảo vệ da trước tia UV, một yếu tố có thể góp phần làm xuất hiện dấu hiệu lão hóa, xỉn màu và đốm nâu.',
-      en: 'Recommended to help protect skin from UV exposure, which can contribute to visible aging signs, dullness, and dark spots.',
+      vi: 'Tẩy tế bào chết không chứa dầu với Lactic Acid, giúp thông thoáng lỗ chân lông và hỗ trợ giảm mụn.',
+      en: 'Oil-free exfoliating scrub with Lactic Acid to unclog pores and reduce acne breakouts.',
     },
-    usageStep: { vi: 'Bước cuối trong chu trình chăm sóc da buổi sáng', en: 'Final morning skincare step' },
-    price: '550.000đ',
+    usageStep: { vi: 'Tẩy da chết 1–2 lần/tuần', en: 'Exfoliate 1–2 times per week' },
   },
   {
-    id: 'hyaluron-filler-day-cream',
-    name: 'Eucerin Hyaluron-Filler Day Cream SPF30',
-    category: { vi: 'Cấp Ẩm Hằng Ngày & Hỗ Trợ Da Căng Mọng', en: 'Daily Moisture & Plumping' },
-    concernTags: ['hydration', 'plumping', 'fine lines', 'anti-aging'],
-    imageUrl: 'https://www.eucerin.vn/media/a/4/a4c4e0e0-2a6e-4cfc-8fcd-00c9bc0e0e59-image-hyaluron-filler-day-cream.png?im=Resize,width=400',
-    eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/day-cream-spf30',
-    shopeeUrl: 'https://shopee.vn/search?keyword=eucerin+hyaluron+filler+day+cream+spf30',
+    id: 'dermopure-clearing-treatment',
+    name: 'Eucerin DermoPure A.I Clearing Treatment',
+    category: { vi: 'Tinh Chất Đặc Trị Mụn', en: 'Acne Clearing Treatment' },
+    concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'texture', 'post-acne dark spots'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/skin-renewal-treatment',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20AI%20Clearing%20Treatment%2040ml',
     shortDescription: {
-      vi: 'Được gợi ý để hỗ trợ cấp ẩm hằng ngày và bổ trợ cho bước serum chống lão hóa.',
-      en: 'Recommended to support daily moisture and complement the anti-aging serum step.',
+      vi: 'Tinh chất điều trị tái tạo bề mặt da, thông thoáng lỗ chân lông và giảm mụn — thấy cải thiện sau khoảng 7 ngày.',
+      en: 'Treatment serum that resurfaces skin, unclogs pores and reduces acne — visible improvement in ~7 days.',
     },
-    usageStep: { vi: 'Bước kem dưỡng ẩm', en: 'Moisturizer step' },
-    price: '780.000đ',
+    usageStep: { vi: 'Bước đặc trị tối (sau làm sạch)', en: 'Targeted evening treatment (after cleansing)' },
+  },
+  {
+    id: 'spotless-booster-serum',
+    name: 'Eucerin Spotless Brightening Booster Serum',
+    category: { vi: 'Tinh Chất Giảm Thâm Nám & Dưỡng Sáng', en: 'Dark Spot Brightening Serum' },
+    concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots', 'uneven skin tone', 'dull skin'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spotless-brightening-booster-serum',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Booster%20Serum%2030ml',
+    shortDescription: {
+      vi: 'Tinh chất với Thiamidol giúp giảm thâm nám và dưỡng sáng da, cải thiện đốm nâu và sắc da không đều.',
+      en: 'Thiamidol-powered serum to visibly reduce dark spots and hyperpigmentation for a more even skin tone.',
+    },
+    usageStep: { vi: 'Bước serum, sáng và tối', en: 'Serum step, morning and night' },
+  },
+  {
+    id: 'spotless-spot-corrector',
+    name: 'Eucerin Spotless Brightening Spot Corrector',
+    category: { vi: 'Bút Chấm Đặc Trị Đốm Nâu', en: 'Targeted Dark Spot Corrector' },
+    concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spot-corrector',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spot%20Corrector%205ml',
+    shortDescription: {
+      vi: 'Bút chấm chuyên biệt làm mờ vùng đốm nâu và thâm nám nhỏ với độ chính xác cao.',
+      en: 'Precise applicator pen to fade small dark spots and localized hyperpigmentation.',
+    },
+    usageStep: { vi: 'Chấm trực tiếp lên vùng đốm nâu, tối', en: 'Apply directly on dark spots, evening' },
+  },
+  {
+    id: 'spotless-day-fluid',
+    name: 'Eucerin Spotless Brightening Day Fluid SPF30',
+    category: { vi: 'Kem Dưỡng Ngày Sáng Da SPF30', en: 'Brightening Day Fluid SPF30' },
+    concernTags: ['dark spots', 'hyperpigmentation', 'uneven skin tone', 'dull skin', 'UV protection'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/day-fluid-spf30',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Day%20SPF30%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng ngày giảm thâm nám, dưỡng sáng và bảo vệ SPF30 trong chu trình ban ngày.',
+      en: 'Day moisturizer that reduces dark spots, brightens skin tone and provides SPF30 sun protection.',
+    },
+    usageStep: { vi: 'Bước dưỡng ngày, sau serum', en: 'Day moisturizer step, after serum' },
+  },
+  {
+    id: 'spotless-night-cream',
+    name: 'Eucerin Spotless Brightening Night Cream',
+    category: { vi: 'Kem Dưỡng Đêm Sáng Da', en: 'Brightening Night Cream' },
+    concernTags: ['dark spots', 'hyperpigmentation', 'uneven skin tone', 'dull skin'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/night-cream',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Night%20Cream%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng đêm hỗ trợ giảm thâm nám, làm đều màu da và nuôi dưỡng da trong lúc ngủ.',
+      en: 'Night cream to reduce dark spots, even out skin tone, and nourish skin overnight.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng tối, sau serum', en: 'Night cream step, after serum' },
+  },
+  {
+    id: 'hf-eye-cream',
+    name: 'Eucerin Hyaluron-Filler Eye Cream SPF15',
+    category: { vi: 'Kem Mắt Chống Lão Hóa SPF15', en: 'Anti-Aging Eye Cream SPF15' },
+    concernTags: ['fine lines', 'wrinkles', 'anti-aging'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/kem-duong-da-vung-mat',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Eye%20Cream%20SPF15%2015ml',
+    shortDescription: {
+      vi: 'Kem mắt cấp ẩm, giảm nếp nhăn vùng mắt với SPF15 bảo vệ da mắt ban ngày.',
+      en: 'Eye cream that hydrates and reduces crow\'s feet with SPF15 protection for daytime.',
+    },
+    usageStep: { vi: 'Bước chăm sóc mắt, sáng và tối', en: 'Eye care step, morning and night' },
+  },
+  {
+    id: 'hf-night-cream',
+    name: 'Eucerin Hyaluron-Filler Night Cream',
+    category: { vi: 'Kem Dưỡng Đêm Cấp Ẩm Chống Lão Hóa', en: 'Hydrating Anti-Aging Night Cream' },
+    concernTags: ['fine lines', 'wrinkles', 'hydration', 'dehydration', 'anti-aging'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/night-cream',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Night%20Cream%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng đêm với Hyaluronic Acid chuỗi ngắn và dài, cấp ẩm sâu và hỗ trợ làm đầy nếp nhăn.',
+      en: 'Night cream with short and long-chain Hyaluronic Acid to deeply hydrate and plump wrinkles overnight.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng tối', en: 'Night cream step' },
+  },
+  {
+    id: 'sun-fluid-photoaging',
+    name: 'Eucerin Sun Fluid Photoaging Control SPF50',
+    category: { vi: 'Chống Nắng Chống Lão Hóa SPF50', en: 'Anti-Aging Sunscreen SPF50' },
+    concernTags: ['UV protection', 'anti-aging', 'fine lines', 'dull skin', 'radiance'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-photoaging-control-spf-50',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Fluid%20Photoaging%20Control%20SPF50%2050ml',
+    shortDescription: {
+      vi: 'Kem chống nắng mặt bảo vệ UVA/UVB và ánh sáng xanh, hỗ trợ giảm nếp nhăn và ngăn lão hóa do nắng.',
+      en: 'Facial sunscreen against UVA/UVB and blue light that helps reduce wrinkles and prevent sun-related aging.',
+    },
+    usageStep: { vi: 'Bước cuối buổi sáng (sau kem dưỡng)', en: 'Final morning step (after moisturizer)' },
+  },
+  {
+    id: 'sun-serum-pigment-control',
+    name: 'Eucerin Sun Serum Pigment Control SPF50+',
+    category: { vi: 'Chống Nắng Giảm Thâm Nám SPF50+', en: 'Anti-Pigment Sunscreen Serum SPF50+' },
+    concernTags: ['UV protection', 'dark spots', 'hyperpigmentation', 'melasma', 'uneven skin tone'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-pigment-control-spf-50',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Serum%20Pigment%20Control%20SPF50%2B%2050ml',
+    shortDescription: {
+      vi: 'Tinh chất chống nắng SPF50+ bảo vệ da khỏi UV và hỗ trợ giảm, ngăn thâm nám quay lại.',
+      en: 'SPF50+ sunscreen serum that shields from UV and helps reduce and prevent dark spots from recurring.',
+    },
+    usageStep: { vi: 'Bước cuối buổi sáng', en: 'Final morning step' },
+  },
+  {
+    id: 'sun-cc-oil-control',
+    name: 'Eucerin Sun Dry Touch CC Oil Control SPF50+',
+    category: { vi: 'Chống Nắng Có Màu Kiềm Dầu SPF50+', en: 'Tinted Oil-Control Sunscreen SPF50+' },
+    concernTags: ['excess oil', 'large pores', 'UV protection', 'acne', 'texture'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-creme-tinted-cc-fair-spf-50plus',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Dry%20Touch%20CC%20Oil%20Control%20SPF50%2B%2050ml',
+    shortDescription: {
+      vi: 'Kem chống nắng có màu, kiềm dầu và che phủ nhẹ cho da đều màu — phù hợp da nhờn mụn.',
+      en: 'Tinted oil-control sunscreen with light coverage for a more even complexion — ideal for oily, acne-prone skin.',
+    },
+    usageStep: { vi: 'Bước cuối buổi sáng', en: 'Final morning step' },
+  },
+  {
+    id: 'sun-gel-creme-dry-touch',
+    name: 'Eucerin Sun Gel-Creme Dry Touch SPF50+',
+    category: { vi: 'Chống Nắng Khô Thoáng Da Nhờn SPF50+', en: 'Dry-Touch Sunscreen for Oily Skin SPF50+' },
+    concernTags: ['excess oil', 'acne', 'clogged pores', 'UV protection'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-gel-creme-dry-touch-spf-50plus',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Gel%20Creme%20Dry%20Touch%20SPF50%2B%2050ml',
+    shortDescription: {
+      vi: 'Kem chống nắng SPF50+ kết cấu khô thoáng, kiểm soát dầu và phù hợp da nhờn mụn.',
+      en: 'SPF50+ sunscreen with dry-touch texture that controls oil — designed for oily and acne-prone skin.',
+    },
+    usageStep: { vi: 'Bước cuối buổi sáng', en: 'Final morning step' },
+  },
+  {
+    id: 'dermato-clean-micellar',
+    name: 'Eucerin DermatoCLEAN Micellar Water 3 in 1',
+    category: { vi: 'Nước Tẩy Trang 3 Trong 1', en: '3-in-1 Micellar Cleansing Water' },
+    concernTags: ['sensitive skin', 'dryness', 'dehydration', 'irritation'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/dermato-clean/dermatoclean-%5Bhyaluron%5D-micellar-water-3-in-1',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermatoCLEAN%20Micellar%203in1%20400ml',
+    shortDescription: {
+      vi: 'Nước tẩy trang 3 trong 1 làm sạch dịu nhẹ, loại bỏ trang điểm và cấp ẩm với Hyaluronic Acid.',
+      en: '3-in-1 micellar water that gently cleanses, removes makeup, and hydrates with Hyaluronic Acid.',
+    },
+    usageStep: { vi: 'Bước tẩy trang trước rửa mặt', en: 'Makeup removal step before cleansing' },
+  },
+  {
+    id: 'lipo-balance-cream',
+    name: 'Eucerin Lipo Balance Intensive Nourishing Cream',
+    category: { vi: 'Kem Dưỡng Ẩm Chuyên Sâu Da Khô', en: 'Intensive Nourishing Cream for Dry Skin' },
+    concernTags: ['dryness', 'dehydration', 'sensitive skin'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/lipo-balance/san-pham-lipo-balance',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Lipo%20Balance%20Intensive%20Nourishing%20Cream%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng ẩm chuyên sâu phục hồi cân bằng lipid biểu bì, giảm mất nước và cải thiện da khô.',
+      en: 'Intensive moisturizer that restores the skin\'s lipid balance, reduces water loss, and improves very dry skin.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng ẩm, sáng và tối', en: 'Moisturizer step, morning and night' },
+  },
+  {
+    id: 'q10-night-cream',
+    name: 'Eucerin Q10 Active Night Cream',
+    category: { vi: 'Kem Dưỡng Đêm Chống Lão Hóa Sớm', en: 'Early Anti-Aging Night Cream Q10' },
+    concernTags: ['fine lines', 'anti-aging', 'sensitive skin'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/q10-active/night-cream',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Q10%20Active%20Night%20Cream%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng đêm chứa Coenzyme Q10, hỗ trợ tái tạo da và giảm dấu hiệu nếp nhăn lão hóa sớm.',
+      en: 'Night cream with Coenzyme Q10 to support skin renewal and reduce early signs of fine lines.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng tối', en: 'Night cream step' },
+  },
+  {
+    id: 'hf-elasticity-3d-serum',
+    name: 'Eucerin Hyaluron-Filler + Elasticity 3D Serum',
+    category: { vi: 'Tinh Chất Chống Lão Hóa 3 Tác Động', en: 'Triple-Action Anti-Aging Serum' },
+    concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'dark spots', 'firmness'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/3d-serum',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%203D%20Serum%2030ml',
+    shortDescription: {
+      vi: 'Tinh chất 3 tác động giảm nếp nhăn, cải thiện độ săn chắc và làm mờ đốm nâu do tuổi tác.',
+      en: 'Triple-action serum that reduces wrinkles, improves firmness, and fades age-related dark spots.',
+    },
+    usageStep: { vi: 'Bước serum, sáng và tối', en: 'Serum step, morning and night' },
+  },
+  {
+    id: 'hf-elasticity-night-care',
+    name: 'Eucerin Hyaluron-Filler + Elasticity Night Care',
+    category: { vi: 'Kem Dưỡng Đêm Chống Chảy Xệ', en: 'Firming Anti-Sagging Night Care' },
+    concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'firmness'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/night-care',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%20Night%20Care%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng đêm hỗ trợ cải thiện nếp nhăn sâu và da chảy xệ, giúp da săn chắc và căng mịn hơn.',
+      en: 'Night cream to improve deep wrinkles and sagging, leaving skin firmer and more supple.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng tối', en: 'Night cream step' },
+  },
+  {
+    id: 'ato-control-face-cream',
+    name: 'Eucerin Ato Control Face Cream',
+    category: { vi: 'Kem Dưỡng Phục Hồi Hàng Rào Bảo Vệ', en: 'Barrier Recovery Face Cream' },
+    concernTags: ['sensitive skin', 'irritation', 'redness', 'dryness'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/atopicontrol/face-care-cream',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Ato%20Control%20Face%20Cream%2050ml',
+    shortDescription: {
+      vi: 'Kem dưỡng làm dịu, phục hồi và tái tạo hàng rào bảo vệ da cho da khô, nhạy cảm hoặc viêm cơ địa.',
+      en: 'Face cream that soothes, repairs, and restores the skin barrier for dry, sensitive, or atopy-prone skin.',
+    },
+    usageStep: { vi: 'Bước kem dưỡng ẩm, sáng và tối', en: 'Moisturizer step, morning and night' },
+  },
+  {
+    id: 'ph5-facial-cleanser',
+    name: 'Eucerin pH5 Sensitive Skin Facial Cleanser',
+    category: { vi: 'Sữa Rửa Mặt Da Nhạy Cảm', en: 'Sensitive Skin Facial Cleanser' },
+    concernTags: ['sensitive skin', 'irritation', 'redness'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20pH5%20Sensitive%20Skin%20Facial%20Cleanser',
+    shortDescription: {
+      vi: 'Sữa rửa mặt dịu nhẹ cho da nhạy cảm, làm sạch không gây khô căng và duy trì cân bằng pH tự nhiên.',
+      en: 'Gentle cleanser for sensitive skin that cleans without stripping and maintains the skin\'s natural pH balance.',
+    },
+    usageStep: { vi: 'Bước làm sạch, sáng và tối', en: 'Cleansing step, morning and night' },
+  },
+  {
+    id: 'proacne-cleansing-foam',
+    name: 'Eucerin Pro Acne Cleansing Foam',
+    category: { vi: 'Sữa Rửa Mặt Tạo Bọt Da Mụn', en: 'Acne Foaming Cleanser' },
+    concernTags: ['acne', 'excess oil', 'clogged pores'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Pro%20Acne%20Cleansing%20Foam%2050g',
+    shortDescription: {
+      vi: 'Sữa rửa mặt dạng bọt làm sạch sâu cho da nhờn mụn, loại bỏ dầu thừa và bụi bẩn hiệu quả.',
+      en: 'Foaming cleanser for deep cleaning of oily, acne-prone skin — removes excess oil and impurities.',
+    },
+    usageStep: { vi: 'Bước làm sạch, sáng và tối', en: 'Cleansing step, morning and night' },
+  },
+  {
+    id: 'dermopure-toner',
+    name: 'Eucerin DermoPure Clinical Purifying Toner',
+    category: { vi: 'Nước Cân Bằng Da Mụn', en: 'Acne Skin Purifying Toner' },
+    concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Clinical%20Purifying%20Toner%20200ml',
+    shortDescription: {
+      vi: 'Nước cân bằng sau rửa mặt, thông thoáng lỗ chân lông và chuẩn bị da cho bước đặc trị mụn.',
+      en: 'Post-cleanse toner that unclogs pores and preps skin for acne treatment steps.',
+    },
+    usageStep: { vi: 'Sau bước làm sạch, trước serum', en: 'After cleansing, before serum' },
+  },
+  {
+    id: 'dermopure-gel-to-foam',
+    name: 'Eucerin DermoPure Clinical Correcting Gel To Foam',
+    category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Correcting Gel-to-Foam Cleanser' },
+    concernTags: ['acne', 'excess oil', 'clogged pores'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Correcting%20Gel%20To%20Foam%2075ml',
+    shortDescription: {
+      vi: 'Sản phẩm gel-to-foam làm sạch dầu thừa và bụi bẩn, phù hợp chu trình chăm sóc da mụn.',
+      en: 'Gel-to-foam cleanser that removes excess oil and impurities — designed for acne-prone skin routines.',
+    },
+    usageStep: { vi: 'Bước làm sạch, sáng và tối', en: 'Cleansing step, morning and night' },
+  },
+  {
+    id: 'ultra-sensitive-serum',
+    name: 'Eucerin Ultra Sensitive Repair Serum',
+    category: { vi: 'Tinh Chất Phục Hồi Da Nhạy Cảm', en: 'Sensitive Skin Repair Serum' },
+    concernTags: ['sensitive skin', 'irritation', 'redness', 'dehydration'],
+    imageUrl: '',
+    eucerinUrl: 'https://www.eucerin.vn/san-pham',
+    shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Ultra%20Sensitive%20Repair%20Serum%2030ml',
+    shortDescription: {
+      vi: 'Tinh chất hỗ trợ phục hồi và làm dịu da nhạy cảm, giúp củng cố hàng rào bảo vệ da.',
+      en: 'Serum that restores and soothes sensitive skin and strengthens the skin barrier.',
+    },
+    usageStep: { vi: 'Bước serum, sáng và tối', en: 'Serum step, morning and night' },
   },
 ]
 
@@ -1548,30 +1838,86 @@ function getRecommendedProducts(scores = {}, detectedConcerns = []) {
   const hasConcern = (...kws) => kws.some(kw =>
     detectedConcerns.some(c => c.toLowerCase().includes(kw.toLowerCase()) || kw.toLowerCase().includes(c.toLowerCase()))
   )
-  const list = []
-  // Hero serum — always first, per brand strategy
-  list.push(EUCERIN_PRODUCTS.find(p => p.id === 'epicelline-serum'))
-  // Dark spot serum if high darkSpots score or relevant concerns
-  if ((scores.darkSpots ?? 0) > 45 || hasConcern('dark spots', 'hyperpigmentation', 'melasma', 'uneven', 'spots'))
-    list.push(EUCERIN_PRODUCTS.find(p => p.id === 'anti-pigment-dual-serum'))
-  // SPF if low radiance or high darkSpots
-  if ((scores.radiance ?? 100) < 60 || (scores.darkSpots ?? 0) > 40)
-    list.push(EUCERIN_PRODUCTS.find(p => p.id === 'sun-fluid-anti-age'))
-  // Day cream if low hydration
-  if ((scores.hydration ?? 100) < 55)
-    list.push(EUCERIN_PRODUCTS.find(p => p.id === 'hyaluron-filler-day-cream'))
 
-  // Guarantee at least 3 products — pad with remaining in catalogue order
-  const ORDER = ['epicelline-serum', 'sun-fluid-anti-age', 'hyaluron-filler-day-cream', 'anti-pigment-dual-serum']
-  for (const id of ORDER) {
-    if (list.length >= 3) break
-    if (!list.find(p => p.id === id)) {
-      const p = EUCERIN_PRODUCTS.find(p => p.id === id)
-      if (p) list.push(p)
-    }
+  const pts = {}
+  const add = (id, n) => { pts[id] = (pts[id] || 0) + n }
+
+  // Dark spots / pigmentation
+  if ((scores.darkSpots || 0) > 50 || hasConcern('dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots', 'uneven skin tone')) {
+    add('spotless-booster-serum',   scores.darkSpots || 60)
+    add('sun-serum-pigment-control', (scores.darkSpots || 50) * 0.8)
+    add('spotless-spot-corrector',   (scores.darkSpots || 50) * 0.7)
+    add('spotless-day-fluid', 30)
+    add('spotless-night-cream', 25)
   }
 
-  return list.filter(Boolean)
+  // Acne / oily / texture
+  if ((scores.texture || 0) > 50 || hasConcern('acne', 'excess oil', 'clogged pores', 'blackheads', 'large pores')) {
+    add('dermopure-clearing-treatment', scores.texture || 60)
+    add('dermopure-cleanser',           (scores.texture || 50) * 0.8)
+    add('sun-cc-oil-control', 25)
+    add('sun-gel-creme-dry-touch', 20)
+  }
+
+  // Fine lines / wrinkles / firmness / anti-aging
+  if ((scores.fineLines || 0) > 50 || (scores.firmness || 100) < 50 || hasConcern('fine lines', 'wrinkles', 'anti-aging')) {
+    const agePts = Math.max(scores.fineLines || 0, 100 - (scores.firmness || 50))
+    add('hf-elasticity-3d-serum',    agePts)
+    add('hf-elasticity-night-care',  agePts * 0.8)
+    add('sun-fluid-photoaging', 25)
+    add('q10-night-cream', 20)
+    add('hf-eye-cream', 15)
+  }
+
+  // Dryness / dehydration / low hydration
+  if ((scores.hydration || 100) < 50 || hasConcern('dryness', 'dehydration')) {
+    const dryPts = 100 - (scores.hydration || 50)
+    add('lipo-balance-cream', dryPts)
+    add('hf-night-cream',     dryPts * 0.7)
+    add('dermato-clean-micellar', 15)
+  }
+
+  // Barrier / sensitive / redness
+  if ((scores.barrierHealth || 100) < 50 || hasConcern('sensitive skin', 'irritation', 'redness')) {
+    const barrierPts = 100 - (scores.barrierHealth || 50)
+    add('ato-control-face-cream', barrierPts)
+    add('ultra-sensitive-serum',  barrierPts * 0.8)
+    add('ph5-facial-cleanser', 20)
+  }
+
+  // Dull skin / low radiance
+  if ((scores.radiance || 100) < 50 || hasConcern('dull skin')) {
+    add('spotless-booster-serum', 20)
+    add('spotless-day-fluid', 20)
+    add('sun-fluid-photoaging', 15)
+  }
+
+  // UV — always slightly relevant if skin shows aging/spots
+  if (hasConcern('UV protection') || (scores.darkSpots || 0) > 40 || (scores.fineLines || 0) > 40) {
+    add('sun-fluid-photoaging', 20)
+    add('sun-serum-pigment-control', 10)
+  }
+
+  // Sort by relevance score, exclude hero (always first)
+  const sorted = Object.entries(pts)
+    .sort(([, a], [, b]) => b - a)
+    .map(([id]) => id)
+    .filter(id => id !== 'epicelline-serum')
+
+  const list = ['epicelline-serum']
+  for (const id of sorted) {
+    if (list.length >= 4) break
+    list.push(id)
+  }
+
+  // Pad to minimum 3 with sensible fallbacks
+  const fallbacks = ['sun-fluid-photoaging', 'spotless-booster-serum', 'hf-elasticity-3d-serum', 'lipo-balance-cream', 'ato-control-face-cream']
+  for (const id of fallbacks) {
+    if (list.length >= 3) break
+    if (!list.includes(id)) list.push(id)
+  }
+
+  return list.map(id => EUCERIN_PRODUCTS.find(p => p.id === id)).filter(Boolean)
 }
 
 function ScoreBar({ item, score, lang = 'vi' }) {
