@@ -1448,8 +1448,9 @@ const PRODUCTS_CONTENT = {
       title: 'Chu Trình Buổi Tối',
       steps: ['Sữa rửa mặt dịu nhẹ', 'Eucerin Hyaluron-Filler Epicelline Serum', 'Kem dưỡng ẩm hoặc kem hỗ trợ hàng rào bảo vệ da'],
     },
-    rescan: 'Quét Lại',
-    home:   'Về Trang Chủ',
+    rescan:   'Quét Lại',
+    home:     'Về Trang Chủ',
+    sendBtn:  'Gửi Kết Quả',
   },
   en: {
     title:      'Your Recommended Eucerin Routine',
@@ -1466,46 +1467,53 @@ const PRODUCTS_CONTENT = {
       title: 'Night Routine',
       steps: ['Gentle cleanser', 'Eucerin Hyaluron-Filler Epicelline Serum', 'Moisturizer or barrier-support cream'],
     },
-    rescan: 'Scan Again',
-    home:   'Go Home',
+    rescan:   'Scan Again',
+    home:     'Go Home',
+    sendBtn:  'Send My Results',
   },
 }
 
 // ── Send Results content ──────────────────────────────────────────────
 const SEND_CONTENT = {
   vi: {
-    btnLabel:    'Gửi Kết Quả',
-    title:       'Gửi Kết Quả Của Tôi',
-    subtitle:    'Nhận kết quả phân tích da và tư vấn sản phẩm trực tiếp qua Zalo OA hoặc SMS của Eucerin Việt Nam.',
-    summaryTitle:'Tóm tắt kết quả của bạn:',
-    skinAge:     'Tuổi Da Ước Tính',
-    skinTypeLabel:'Loại Da',
-    mainConcern: 'Mối Quan Tâm Chính',
-    confidence:  'Độ Tin Cậy Của AI',
-    ageSuffix:   'tuổi',
-    sendZalo:    'Gửi Qua Zalo',
-    openZaloOA:  'Mở Zalo OA Eucerin Việt Nam',
-    sendSMS:     'Gửi Qua SMS',
-    poweredBy:   'Hỗ trợ bởi',
-    homeBtn:     'Trang chủ Eucerin',
-    shopeeBtn:   'Cửa hàng Shopee',
+    btnLabel:        'Gửi Kết Quả',
+    title:           'Gửi Kết Quả Của Tôi',
+    subtitle:        'Nhận kết quả phân tích da và tư vấn sản phẩm trực tiếp qua Zalo OA hoặc SMS của Eucerin Việt Nam.',
+    summaryTitle:    'Tóm tắt kết quả của bạn:',
+    skinAge:         'Tuổi Da Ước Tính',
+    skinTypeLabel:   'Loại Da',
+    mainConcern:     'Mối Quan Tâm Chính',
+    confidence:      'Độ Tin Cậy Của AI',
+    ageSuffix:       'tuổi',
+    phoneLabel:      'Số điện thoại',
+    phonePlaceholder:'Nhập số điện thoại để gửi SMS',
+    sendZalo:        'Gửi Qua Zalo',
+    openZaloOA:      'Mở Zalo OA Eucerin Việt Nam',
+    sendSMS:         'Gửi Qua SMS',
+    poweredBy:       'Hỗ trợ bởi',
+    homeBtn:         'Trang chủ Eucerin',
+    shopeeBtn:       'Cửa hàng Shopee',
+    backBtn:         'Quay Lại',
   },
   en: {
-    btnLabel:    'Send My Results',
-    title:       'Send My Results',
-    subtitle:    'Receive your skin analysis and product advice directly via Zalo OA or SMS from Eucerin Vietnam.',
-    summaryTitle:'Your results summary:',
-    skinAge:     'Estimated Skin Age',
-    skinTypeLabel:'Skin Type',
-    mainConcern: 'Main Concern',
-    confidence:  'AI Confidence',
-    ageSuffix:   'years old',
-    sendZalo:    'Send via Zalo',
-    openZaloOA:  'Open Eucerin Vietnam Zalo OA',
-    sendSMS:     'Send via SMS',
-    poweredBy:   'Powered by',
-    homeBtn:     'Eucerin Website',
-    shopeeBtn:   'Shopee Store',
+    btnLabel:        'Send My Results',
+    title:           'Send My Results',
+    subtitle:        'Receive your skin analysis and product advice directly via Zalo OA or SMS from Eucerin Vietnam.',
+    summaryTitle:    'Your results summary:',
+    skinAge:         'Estimated Skin Age',
+    skinTypeLabel:   'Skin Type',
+    mainConcern:     'Main Concern',
+    confidence:      'AI Confidence',
+    ageSuffix:       'years old',
+    phoneLabel:      'Phone number',
+    phonePlaceholder:'Enter phone number to send SMS',
+    sendZalo:        'Send via Zalo',
+    openZaloOA:      'Open Eucerin Vietnam Zalo OA',
+    sendSMS:         'Send via SMS',
+    poweredBy:       'Powered by',
+    homeBtn:         'Eucerin Website',
+    shopeeBtn:       'Shopee Store',
+    backBtn:         'Go Back',
   },
 }
 
@@ -2208,70 +2216,55 @@ function ResultsStep({ skinType, aiAnalysis, lang, onContinue }) {
 }
 
 /* ═══════════════════════════════════════════════
-   ProductsStep
+   STEP 6 — Send Results page
 ═══════════════════════════════════════════════ */
-function SendResultsSection({ aiAnalysis, lang }) {
+function SendResultsPage({ aiAnalysis, lang, onBack }) {
   const t = SEND_CONTENT[lang] || SEND_CONTENT.vi
-  const [open, setOpen] = useState(false)
+  const [phone, setPhone] = useState('')
 
-  const skinAge    = aiAnalysis?.skinAge
-  const confidence = aiAnalysis?.confidence
-  const skinType   = aiAnalysis?.skinType
+  const skinAge       = aiAnalysis?.skinAge
+  const confidence    = aiAnalysis?.confidence
+  const skinType      = aiAnalysis?.skinType
   const skinTypeLabel = SKIN_TYPE_LABELS[lang]?.[skinType] || skinType || '—'
-  const mainConcern = lang === 'vi'
+  const mainConcern   = lang === 'vi'
     ? (aiAnalysis?.primaryConcernVi || aiAnalysis?.primaryConcernEn || '—')
     : (aiAnalysis?.primaryConcernEn || aiAnalysis?.primaryConcernVi || '—')
 
-  // Build SMS body
+  // SMS body
   const smsBody = lang === 'vi'
     ? `Kết quả phân tích da Eucerin:\n- Tuổi da: ${skinAge ? `${skinAge} tuổi` : '—'}\n- Loại da: ${skinTypeLabel}\n- Mối quan tâm chính: ${mainConcern}\n- Độ tin cậy AI: ${confidence ? `${confidence}%` : '—'}\n\nXem thêm tại: https://www.eucerin.vn`
     : `Eucerin Skin Analysis:\n- Skin age: ${skinAge ? `${skinAge} years old` : '—'}\n- Skin type: ${skinTypeLabel}\n- Main concern: ${mainConcern}\n- AI confidence: ${confidence ? `${confidence}%` : '—'}\n\nLearn more: https://www.eucerin.vn`
-  const smsHref = `sms:?body=${encodeURIComponent(smsBody)}`
+  const smsHref = phone
+    ? `sms:${phone}?body=${encodeURIComponent(smsBody)}`
+    : `sms:?body=${encodeURIComponent(smsBody)}`
 
-  // Zalo OA deep link — replace OA_ID with real Eucerin Vietnam Zalo OA ID
-  const zaloOAUrl = 'https://zalo.me/eucerin'
-  const zaloSendUrl = `https://zalo.me/eucerin`
+  const zaloOAUrl  = 'https://zalo.me/eucerin'
+  const zaloSendUrl = 'https://zalo.me/eucerin'
 
   return (
-    <div className="rounded-2xl bg-card shadow-lg overflow-hidden">
-      {/* Toggle button */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between gap-3 px-6 py-4 text-left"
-        style={{ background: PRIMARY_COLOR }}
-      >
-        <div className="flex items-center gap-2">
-          <Send className="h-4 w-4 text-white" />
-          <span className="text-sm font-bold text-white">{t.btnLabel}</span>
-        </div>
-        <ChevronDown
-          className="h-4 w-4 text-white transition-transform duration-300"
-          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
-        />
-      </button>
+    <motion.div {...fade} className="min-h-[calc(100vh-4rem)] bg-muted/30 flex items-start justify-center">
+      <div className="w-full max-w-md px-4 py-10">
+        <motion.div {...slideUp} className="bg-card rounded-2xl shadow-lg p-8 space-y-6">
 
-      {/* Expanded card */}
-      {open && (
-        <div className="p-6 space-y-5">
           {/* Icon + title */}
-          <div className="text-center space-y-2">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-blue-100">
-              <MessageCircle className="h-7 w-7 text-blue-500" />
+          <div className="text-center space-y-3">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
+              <MessageCircle className="h-8 w-8 text-blue-500" />
             </div>
-            <h3 className="text-lg font-bold text-foreground">{t.title}</h3>
+            <h2 className="text-xl font-bold text-foreground">{t.title}</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">{t.subtitle}</p>
           </div>
 
-          {/* Results summary card */}
-          <div className="rounded-xl border border-border bg-muted/30 p-4 space-y-2">
-            <p className="text-xs font-bold text-foreground mb-3">{t.summaryTitle}</p>
+          {/* Results summary */}
+          <div className="rounded-xl border border-border bg-muted/30 p-4 space-y-2.5">
+            <p className="text-xs font-bold text-foreground">{t.summaryTitle}</p>
             {[
-              { label: t.skinAge,      value: skinAge ? `${skinAge} ${t.ageSuffix}` : '—' },
+              { label: t.skinAge,       value: skinAge ? `${skinAge} ${t.ageSuffix}` : '—' },
               { label: t.skinTypeLabel, value: skinTypeLabel },
-              { label: t.mainConcern,  value: mainConcern },
-              { label: t.confidence,   value: confidence ? `${confidence}%` : '—', highlight: true },
+              { label: t.mainConcern,   value: mainConcern },
+              { label: t.confidence,    value: confidence ? `${confidence}%` : '—', highlight: true },
             ].map(({ label, value, highlight }) => (
-              <div key={label} className="flex items-center justify-between gap-2">
+              <div key={label} className="flex items-center justify-between gap-3">
                 <span className="text-sm text-muted-foreground">{label}:</span>
                 <span
                   className="text-sm font-bold text-right"
@@ -2283,55 +2276,69 @@ function SendResultsSection({ aiAnalysis, lang }) {
             ))}
           </div>
 
+          {/* Phone number input */}
+          <div className="space-y-1.5">
+            <label className="text-sm font-bold text-foreground">{t.phoneLabel}</label>
+            <div className="flex items-center gap-2 rounded-xl border-2 border-border bg-background px-4 py-2.5 focus-within:border-primary transition-colors">
+              <Phone className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+              <input
+                type="tel"
+                inputMode="numeric"
+                value={phone}
+                onChange={e => setPhone(e.target.value.replace(/[^\d+]/g, ''))}
+                placeholder={t.phonePlaceholder}
+                className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none"
+              />
+            </div>
+          </div>
+
           {/* Action buttons */}
           <div className="space-y-3">
-            {/* Zalo send */}
             <a
               href={zaloSendUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white shadow transition-opacity hover:opacity-90"
+              className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold text-white shadow transition-opacity hover:opacity-90"
               style={{ backgroundColor: '#0068FF' }}
             >
               <Send className="h-4 w-4" />
               {t.sendZalo}
             </a>
 
-            {/* SMS */}
             <a
               href={smsHref}
-              className="flex w-full items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white shadow transition-opacity hover:opacity-90"
+              className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold text-white shadow transition-opacity hover:opacity-90"
               style={{ backgroundColor: '#22c55e' }}
             >
               <Phone className="h-4 w-4" />
               {t.sendSMS}
             </a>
 
-            {/* Open Zalo OA */}
             <a
               href={zaloOAUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
               {t.openZaloOA}
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
 
-          {/* Powered by + footer links */}
+          {/* Powered by */}
           <p className="text-center text-xs text-muted-foreground">
-            {t.poweredBy}{' '}
-            <span className="font-bold text-blue-500">Zalo</span>
+            {t.poweredBy}{' '}<span className="font-bold text-blue-500">Zalo</span>
           </p>
-          <div className="flex justify-center gap-3 pt-1">
+
+          {/* Footer links */}
+          <div className="flex justify-center gap-3">
             <a
               href="https://www.eucerin.vn"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground hover:bg-muted"
             >
-              <img src="/images/eucerin-logo.png" alt="Eucerin" className="h-4 w-auto" onError={e => { e.target.style.display='none' }} />
+              <img src="/images/eucerin-logo.png" alt="Eucerin" className="h-4 w-auto" onError={e => { e.target.style.display = 'none' }} />
               {t.homeBtn}
             </a>
             <a
@@ -2345,13 +2352,25 @@ function SendResultsSection({ aiAnalysis, lang }) {
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
-        </div>
-      )}
-    </div>
+
+          {/* Back button */}
+          <div className="flex justify-center pt-1">
+            <button
+              onClick={onBack}
+              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <ChevronRight className="h-4 w-4 rotate-180" />
+              {t.backBtn}
+            </button>
+          </div>
+
+        </motion.div>
+      </div>
+    </motion.div>
   )
 }
 
-function ProductsStep({ aiAnalysis, lang, onRescan }) {
+function ProductsStep({ aiAnalysis, lang, onRescan, onSend }) {
   const navigate = useNavigate()
   const t = PRODUCTS_CONTENT[lang] || PRODUCTS_CONTENT.vi
   const scores   = aiAnalysis?.scores || {}
@@ -2494,11 +2513,18 @@ function ProductsStep({ aiAnalysis, lang, onRescan }) {
             </div>
           </div>
 
-          {/* Send Results */}
-          <SendResultsSection aiAnalysis={aiAnalysis} lang={lang} />
+          {/* Send Results — navigates to dedicated page */}
+          <button
+            onClick={onSend}
+            className="flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-base font-bold text-white shadow-lg transition-opacity hover:opacity-90"
+            style={{ background: PRIMARY_COLOR }}
+          >
+            <Send className="h-5 w-5" />
+            {t.sendBtn}
+          </button>
 
           {/* Rescan + Home */}
-          <div className="flex justify-center gap-3 pt-4">
+          <div className="flex justify-center gap-3 pt-2">
             <button
               onClick={onRescan}
               className="rounded-xl border border-border bg-transparent px-6 py-3 text-sm font-bold text-foreground transition-colors hover:bg-muted"
@@ -2523,7 +2549,7 @@ function ProductsStep({ aiAnalysis, lang, onRescan }) {
    Root — ScanPage
 ═══════════════════════════════════════════════ */
 export default function ScanPage() {
-  const [step,       setStep]       = useState(0)   // 0=consent 1=camera 2=scan-anim 3=form 4=results 5=products
+  const [step,       setStep]       = useState(0)   // 0=consent 1=camera 2=scan-anim 3=form 4=results 5=products 6=send
   const [lang,       setLang]       = useState('vi')
   const [photos,     setPhotos]     = useState(null)
   const [formData,   setFormData]   = useState(null)
@@ -2553,12 +2579,13 @@ export default function ScanPage() {
     <div className="min-h-screen bg-background font-sans">
       <PageHeader lang={lang} setLang={setLang} />
       <AnimatePresence mode="wait">
-        {step === 0 && <ConsentStep    key="consent"   onContinue={() => go(1)} lang={lang} />}
-        {step === 1 && <CameraStep     key="camera"    onCapture={handleCapture} lang={lang} />}
-        {step === 2 && <ScanningStep   key="scanning"  photos={photos} lang={lang} onComplete={handleScanDone} />}
-        {step === 3 && <FormStep       key="form"      photos={photos} onSubmit={handleFormSubmit} lang={lang} />}
-        {step === 4 && <ResultsStep    key="results"   skinType={skinType} aiAnalysis={aiAnalysis} lang={lang} onContinue={() => go(5)} />}
-        {step === 5 && <ProductsStep   key="products"  aiAnalysis={aiAnalysis} lang={lang} onRescan={handleRescan} />}
+        {step === 0 && <ConsentStep       key="consent"   onContinue={() => go(1)} lang={lang} />}
+        {step === 1 && <CameraStep        key="camera"    onCapture={handleCapture} lang={lang} />}
+        {step === 2 && <ScanningStep      key="scanning"  photos={photos} lang={lang} onComplete={handleScanDone} />}
+        {step === 3 && <FormStep          key="form"      photos={photos} onSubmit={handleFormSubmit} lang={lang} />}
+        {step === 4 && <ResultsStep       key="results"   skinType={skinType} aiAnalysis={aiAnalysis} lang={lang} onContinue={() => go(5)} />}
+        {step === 5 && <ProductsStep      key="products"  aiAnalysis={aiAnalysis} lang={lang} onRescan={handleRescan} onSend={() => go(6)} />}
+        {step === 6 && <SendResultsPage   key="send"      aiAnalysis={aiAnalysis} lang={lang} onBack={() => go(5)} />}
       </AnimatePresence>
     </div>
   )
