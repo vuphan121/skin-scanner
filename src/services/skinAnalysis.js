@@ -1,6 +1,6 @@
 /**
- * Validates a single photo: checks for a visible face and acceptable image quality.
- * Uses gpt-4o-mini (cheap) — only a yes/no check.
+ * Validates a single photo: checks for a visible human face and acceptable image quality.
+ * Uses gpt-4o with detail:high for reliable human-vs-animal detection.
  *
  * @param {string} dataUrl - base64 data URL of the photo
  * @returns {Promise<{ valid: boolean, reason: string }>}
@@ -9,32 +9,36 @@ export async function validatePhoto(dataUrl) {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY
   if (!apiKey) throw new Error('No API key — set VITE_OPENAI_API_KEY in .env')
 
-  const prompt = `You are checking whether a photo is a usable human selfie for skin analysis.
+  const prompt = `You are a strict gatekeeper for a human skin-analysis app. Your only job is to decide whether this photo shows a real human face.
 
-ACCEPT the photo ONLY if it shows a HUMAN face. Minor imperfections are fine: slight blur, low light, glasses, angle, motion blur, shadows — all acceptable for real selfies.
+FIRST, identify what the main subject of the photo is.
+- If it is a human face → ACCEPT (even with glasses, blur, shadows, angle, or low light)
+- If it is ANYTHING else → REJECT
 
-REJECT the photo if ANY of the following is true:
-1. The subject is NOT a human — this includes cats, dogs, or any other animal, cartoons, drawings, illustrations, or non-human faces
-2. There is no face at all (blank image, wall, object, background only)
-3. The face is so severely blurry or dark that no human facial features (eyes, nose, mouth) can be distinguished
+REJECT immediately if the subject is:
+- A cat, dog, bird, or any other animal (even if the animal looks humanlike or is wearing clothes)
+- A cartoon, drawing, painting, illustration, or CGI face
+- A doll, mannequin, or mask
+- An object, background, food, or scene with no face
+- A completely black, white, or featureless image
 
-Important: A cat face, dog face, or any animal face must ALWAYS be rejected. Only real human faces are accepted.
+Do NOT be fooled by animal faces that have human-like features (e.g. a cat with big eyes). Animal fur, snout, whiskers, or non-human ear placement are all automatic rejections.
 
 Respond ONLY with valid JSON, no markdown:
 { "valid": true }
 or
-{ "valid": false, "reason": "<one short sentence explaining what is wrong>" }`
+{ "valid": false, "reason": "<one short sentence>" }`
 
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
-      model: 'gpt-4o-mini',
+      model: 'gpt-4o',
       max_tokens: 60,
       messages: [{
         role: 'user',
         content: [
-          { type: 'image_url', image_url: { url: dataUrl, detail: 'low' } },
+          { type: 'image_url', image_url: { url: dataUrl, detail: 'high' } },
           { type: 'text', text: prompt },
         ],
       }],
