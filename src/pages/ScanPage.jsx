@@ -489,7 +489,7 @@ function CameraStep({ onCapture, lang }) {
         setPhotos(prev => { const n = [...prev]; n[idx] = url; return n })
         if (idx < 2) setCaptureIdx(i => i + 1)
       } else {
-        setValidError(result.reason || t.validErr)
+        setValidError(t.validErr)
       }
     } catch {
       // Network / API failure — fail open so users aren't blocked
@@ -650,7 +650,6 @@ function CameraStep({ onCapture, lang }) {
                     <div style={{ width: '100%', height: '100%', minHeight: '12rem', background: '#fef2f2', border: '2px solid #fecaca', borderRadius: '0.875rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1.5rem', textAlign: 'center' }}>
                       <AlertCircle style={{ width: '2rem', height: '2rem', color: '#ef4444' }} />
                       <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#b91c1c', margin: 0 }}>{t.validErr}</p>
-                      <p style={{ fontSize: '0.8125rem', color: '#dc2626', margin: 0, lineHeight: 1.5 }}>{validError}</p>
                     </div>
                   </div>
                 ) : photos[captureIdx] ? (
@@ -767,7 +766,6 @@ function CameraStep({ onCapture, lang }) {
                         <div style={{ width: '100%', minHeight: '12rem', background: '#fef2f2', border: '2px solid #fecaca', borderRadius: '0.875rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '1.5rem', textAlign: 'center', marginBottom: '0.875rem' }}>
                           <AlertCircle style={{ width: '2rem', height: '2rem', color: '#ef4444' }} />
                           <p style={{ fontSize: '0.875rem', fontWeight: 600, color: '#b91c1c', margin: 0 }}>{t.validErr}</p>
-                          <p style={{ fontSize: '0.8125rem', color: '#dc2626', margin: 0, lineHeight: 1.5 }}>{validError}</p>
                         </div>
                         <button onClick={() => { setValidError(''); startCamera() }} style={S.btnPri}>
                           <Camera style={{ width: '1rem', height: '1rem' }} />{t.retakePhoto}
