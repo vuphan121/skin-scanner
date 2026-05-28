@@ -71,7 +71,7 @@ or
  *   scores?: { hydration: number, firmness: number, radiance: number, evenness: number, clarity: number }
  * }>}
  */
-export async function analyzeWithAI(photos, formData) {
+export async function analyzeWithAI(photos, formData, lang = 'vi') {
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY
   if (!apiKey) throw new Error('No API key — set VITE_OPENAI_API_KEY in .env')
 
@@ -113,7 +113,11 @@ SKIN AGE — estimate the visible cosmetic skin age as an integer (may differ fr
 
 AI CONFIDENCE — your confidence in this assessment as a percentage (0–100), based on photo quality and visibility.
 
-MAIN CONCERN — one short phrase (max 8 words) summarizing the user's single most notable skin concern visible in the photos.
+MAIN CONCERN — provide the user's single most notable skin concern as two translations:
+- primaryConcernVi: short phrase in Vietnamese (max 8 words)
+- primaryConcernEn: short phrase in English (max 8 words)
+
+LANGUAGE — the app is currently in "${lang === 'vi' ? 'Vietnamese' : 'English'}". Write headline, description, issues, and advice in ${lang === 'vi' ? 'Vietnamese' : 'English'}.
 
 SKIN SCORES — rate each dimension 0–100:
 - hydration (0–100, higher = better): moisture level visible in skin plumpness and texture
@@ -129,13 +133,14 @@ Respond ONLY with valid JSON (no markdown):
   "faceDetected": true,
   "skinAge": <integer>,
   "confidence": <0-100>,
-  "skinType": "<skin type>",
-  "primaryConcern": "<one short phrase>",
+  "skinType": "<one of: oily | dry | combination | sensitive | normal>",
+  "primaryConcernVi": "<short phrase in Vietnamese>",
+  "primaryConcernEn": "<short phrase in English>",
   "detectedConcerns": ["<concern1>", "<concern2>"],
-  "headline": "<6–10 words describing this person's skin>",
-  "description": "<2–3 sentences about visible characteristics across all three angles>",
+  "headline": "<6–10 words in the app language>",
+  "description": "<2–3 sentences in the app language about visible characteristics>",
   "issues": ["<visible issue 1>", "<visible issue 2>", "<visible issue 3>"],
-  "advice": "<one specific, actionable tip based on photo + profile>",
+  "advice": "<one specific, actionable tip in the app language>",
   "scores": {
     "hydration": <0-100>,
     "firmness": <0-100>,

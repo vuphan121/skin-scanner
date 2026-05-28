@@ -960,7 +960,7 @@ function FormStep({ photos, onSubmit, lang }) {
     if (!ready || loading) return
     setLoading(true)
     try {
-      const ai = await analyzeWithAI(photos, form)
+      const ai = await analyzeWithAI(photos, form, lang)
       onSubmit(form, ai)
     } catch {
       onSubmit(form, null) // fail open — show results with fallback
@@ -980,20 +980,6 @@ function FormStep({ photos, onSubmit, lang }) {
               </div>
               <h2 className="text-2xl font-bold text-foreground">{t.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{t.subtitle}</p>
-            </div>
-
-            {/* Photo thumbnails */}
-            <div className="px-8 pt-6">
-              <div className="flex gap-2 mb-2">
-                {t.photoLabels.map((label, i) => (
-                  <div key={label} className="flex-1">
-                    <div className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                      <img src={photos[i]} alt={label} className="w-full h-full object-cover" />
-                    </div>
-                    <p className="text-[10px] font-medium text-muted-foreground text-center mt-1">{label}</p>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Form */}
@@ -1292,6 +1278,11 @@ const PRIORITY_CONFIG = {
 }
 
 // ── Results & Products bilingual content ──────────────────────────────
+const SKIN_TYPE_LABELS = {
+  vi: { oily: 'Da dầu', dry: 'Da khô', combination: 'Da hỗn hợp', sensitive: 'Da nhạy cảm', normal: 'Da thường' },
+  en: { oily: 'Oily', dry: 'Dry', combination: 'Combination', sensitive: 'Sensitive', normal: 'Normal' },
+}
+
 const RESULTS_CONTENT = {
   vi: {
     title:    'Kết Quả Phân Tích Da Của Bạn',
@@ -1502,14 +1493,25 @@ function getRecommendedProducts(scores = {}, detectedConcerns = []) {
   // Day cream if low hydration
   if ((scores.hydration ?? 100) < 55)
     list.push(EUCERIN_PRODUCTS.find(p => p.id === 'hyaluron-filler-day-cream'))
+
+  // Guarantee at least 3 products — pad with remaining in catalogue order
+  const ORDER = ['epicelline-serum', 'sun-fluid-anti-age', 'hyaluron-filler-day-cream', 'anti-pigment-dual-serum']
+  for (const id of ORDER) {
+    if (list.length >= 3) break
+    if (!list.find(p => p.id === id)) {
+      const p = EUCERIN_PRODUCTS.find(p => p.id === id)
+      if (p) list.push(p)
+    }
+  }
+
   return list.filter(Boolean)
 }
 
 function ScoreBar({ item, score, lang = 'vi' }) {
   const bar = score ?? 0
   const color = item.isPositive
-    ? (bar >= 70 ? 'bg-green-500' : bar >= 50 ? 'bg-yellow-500' : 'bg-primary')
-    : (bar <= 30 ? 'bg-green-500' : bar <= 50 ? 'bg-yellow-500' : 'bg-primary')
+    ? (bar >= 50 ? 'bg-yellow-500' : 'bg-primary')
+    : (bar <= 50 ? 'bg-yellow-500' : 'bg-primary')
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
@@ -1606,9 +1608,13 @@ function ResultsStep({ skinType, aiAnalysis, lang, onContinue }) {
   const t       = RESULTS_CONTENT[lang] || RESULTS_CONTENT.vi
   const scores  = aiAnalysis?.scores || {}
   const concerns = aiAnalysis?.detectedConcerns || []
-  const skinAge  = aiAnalysis?.skinAge
+  const skinAge    = aiAnalysis?.skinAge
   const confidence = aiAnalysis?.confidence
-  const mainConcern = aiAnalysis?.primaryConcern
+  // Translate skin type if in Vietnamese
+  const skinTypeLabel = (SKIN_TYPE_LABELS[lang] || SKIN_TYPE_LABELS.vi)[skinType?.toLowerCase()] || skinType || '—'
+  // Primary concern — use bilingual field if available, else the single string
+  const mainConcern = (lang === 'vi' ? aiAnalysis?.primaryConcernVi : aiAnalysis?.primaryConcernEn)
+    || aiAnalysis?.primaryConcern
     || concerns.slice(0, 2).join(', ')
     || (lang === 'vi' ? 'Chưa xác định' : 'Not detected')
 
@@ -1657,7 +1663,7 @@ function ResultsStep({ skinType, aiAnalysis, lang, onContinue }) {
             {/* Skin type */}
             <div className="rounded-2xl bg-card p-4 text-center shadow-lg">
               <p className="mb-1 text-xs font-bold uppercase tracking-wider text-muted-foreground">{t.cards.skinType.label}</p>
-              <p className="text-xl font-bold capitalize text-foreground">{skinType || '—'}</p>
+              <p className="text-xl font-bold text-foreground">{skinTypeLabel}</p>
             </div>
             {/* Main concern */}
             <div className="rounded-2xl bg-card p-4 text-center shadow-lg">
