@@ -1536,7 +1536,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Cleanser',
     category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Gel Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'large pores', 'texture'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/f/6/f6c8e8a2-5c7a-4f9e-8b3d-2e1f4a5c6d7e-dermopure-clinical-cleanser.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/cleanser',
     shopeeUrl: 'https://shopee.vn/Gel-r%E1%BB%ADa-m%E1%BA%B7t-Eucerin%C2%AE-DermoPure-Clinical-Purifying-Cleanser-200ml-i.82297261.1464762135',
     shortDescription: {
@@ -1550,7 +1550,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Scrub',
     category: { vi: 'Tẩy Tế Bào Chết Da Mụn', en: 'Acne Skin Exfoliating Scrub' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores', 'texture'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/a/1/a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p-dermopure-scrub.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/scrub',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=DermoPure+Clinical+Scrub',
     shortDescription: {
@@ -1564,7 +1564,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure A.I Clearing Treatment',
     category: { vi: 'Tinh Chất Đặc Trị Mụn', en: 'Acne Clearing Treatment' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'texture', 'post-acne dark spots'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/b/2/b2c3d4e5-6f7g-8h9i-0j1k-2l3m4n5o6p7q-ai-clearing-treatment.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/skin-renewal-treatment',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20AI%20Clearing%20Treatment%2040ml',
     shortDescription: {
@@ -1578,7 +1578,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Booster Serum',
     category: { vi: 'Tinh Chất Giảm Thâm Nám & Dưỡng Sáng', en: 'Dark Spot Brightening Serum' },
     concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots', 'uneven skin tone', 'dull skin'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/c/3/c3d4e5f6-7g8h-9i0j-1k2l-3m4n5o6p7q8r-spotless-booster-serum.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spotless-brightening-booster-serum',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Booster%20Serum%2030ml',
     shortDescription: {
@@ -1592,7 +1592,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Spot Corrector',
     category: { vi: 'Bút Chấm Đặc Trị Đốm Nâu', en: 'Targeted Dark Spot Corrector' },
     concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/d/4/d4e5f6g7-8h9i-0j1k-2l3m-4n5o6p7q8r9s-spot-corrector.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spot-corrector',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spot%20Corrector%205ml',
     shortDescription: {
@@ -1606,7 +1606,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Day Fluid SPF30',
     category: { vi: 'Kem Dưỡng Ngày Sáng Da SPF30', en: 'Brightening Day Fluid SPF30' },
     concernTags: ['dark spots', 'hyperpigmentation', 'uneven skin tone', 'dull skin', 'UV protection'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/e/5/e5f6g7h8-9i0j-1k2l-3m4n-5o6p7q8r9s0t-day-fluid-spf30.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/day-fluid-spf30',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Day%20SPF30%2050ml',
     shortDescription: {
@@ -1620,7 +1620,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Sáng Da', en: 'Brightening Night Cream' },
     concernTags: ['dark spots', 'hyperpigmentation', 'uneven skin tone', 'dull skin'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/f/6/f6g7h8i9-0j1k-2l3m-4n5o-6p7q8r9s0t1u-night-cream.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1634,7 +1634,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler Eye Cream SPF15',
     category: { vi: 'Kem Mắt Chống Lão Hóa SPF15', en: 'Anti-Aging Eye Cream SPF15' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/g/7/g7h8i9j0-1k2l-3m4n-5o6p-7q8r9s0t1u2v-eye-cream.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/kem-duong-da-vung-mat',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Eye%20Cream%20SPF15%2015ml',
     shortDescription: {
@@ -1648,7 +1648,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Cấp Ẩm Chống Lão Hóa', en: 'Hydrating Anti-Aging Night Cream' },
     concernTags: ['fine lines', 'wrinkles', 'hydration', 'dehydration', 'anti-aging'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/h/8/h8i9j0k1-2l3m-4n5o-6p7q-8r9s0t1u2v3w-night-cream-hf.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1662,7 +1662,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Fluid Photoaging Control SPF50',
     category: { vi: 'Chống Nắng Chống Lão Hóa SPF50', en: 'Anti-Aging Sunscreen SPF50' },
     concernTags: ['UV protection', 'anti-aging', 'fine lines', 'dull skin', 'radiance'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/i/9/i9j0k1l2-3m4n-5o6p-7q8r-9s0t1u2v3w4x-sun-fluid.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-photoaging-control-spf-50',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Fluid%20Photoaging%20Control%20SPF50%2050ml',
     shortDescription: {
@@ -1676,7 +1676,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Serum Pigment Control SPF50+',
     category: { vi: 'Chống Nắng Giảm Thâm Nám SPF50+', en: 'Anti-Pigment Sunscreen Serum SPF50+' },
     concernTags: ['UV protection', 'dark spots', 'hyperpigmentation', 'melasma', 'uneven skin tone'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/j/0/j0k1l2m3-4n5o-6p7q-8r9s-0t1u2v3w4x5y-sun-serum.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-pigment-control-spf-50',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Serum%20Pigment%20Control%20SPF50%2B%2050ml',
     shortDescription: {
@@ -1690,7 +1690,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Dry Touch CC Oil Control SPF50+',
     category: { vi: 'Chống Nắng Có Màu Kiềm Dầu SPF50+', en: 'Tinted Oil-Control Sunscreen SPF50+' },
     concernTags: ['excess oil', 'large pores', 'UV protection', 'acne', 'texture'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/k/1/k1l2m3n4-5o6p-7q8r-9s0t-1u2v3w4x5y6z-cc-oil-control.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-creme-tinted-cc-fair-spf-50plus',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Dry%20Touch%20CC%20Oil%20Control%20SPF50%2B%2050ml',
     shortDescription: {
@@ -1704,7 +1704,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Gel-Creme Dry Touch SPF50+',
     category: { vi: 'Chống Nắng Khô Thoáng Da Nhờn SPF50+', en: 'Dry-Touch Sunscreen for Oily Skin SPF50+' },
     concernTags: ['excess oil', 'acne', 'clogged pores', 'UV protection'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/l/2/l2m3n4o5-6p7q-8r9s-0t1u-2v3w4x5y6z7a-gel-creme.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-gel-creme-dry-touch-spf-50plus',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Gel%20Creme%20Dry%20Touch%20SPF50%2B%2050ml',
     shortDescription: {
@@ -1718,7 +1718,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermatoCLEAN Micellar Water 3 in 1',
     category: { vi: 'Nước Tẩy Trang 3 Trong 1', en: '3-in-1 Micellar Cleansing Water' },
     concernTags: ['sensitive skin', 'dryness', 'dehydration', 'irritation'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/m/3/m3n4o5p6-7q8r-9s0t-1u2v-3w4x5y6z7a8b-micellar.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermato-clean/dermatoclean-%5Bhyaluron%5D-micellar-water-3-in-1',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermatoCLEAN%20Micellar%203in1%20400ml',
     shortDescription: {
@@ -1732,7 +1732,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Lipo Balance Intensive Nourishing Cream',
     category: { vi: 'Kem Dưỡng Ẩm Chuyên Sâu Da Khô', en: 'Intensive Nourishing Cream for Dry Skin' },
     concernTags: ['dryness', 'dehydration', 'sensitive skin'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/n/4/n4o5p6q7-8r9s-0t1u-2v3w-4x5y6z7a8b9c-lipo-balance.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/lipo-balance/san-pham-lipo-balance',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Lipo%20Balance%20Intensive%20Nourishing%20Cream%2050ml',
     shortDescription: {
@@ -1746,7 +1746,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Q10 Active Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Chống Lão Hóa Sớm', en: 'Early Anti-Aging Night Cream Q10' },
     concernTags: ['fine lines', 'anti-aging', 'sensitive skin'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/o/5/o5p6q7r8-9s0t-1u2v-3w4x-5y6z7a8b9c0d-q10-night.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/q10-active/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Q10%20Active%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1760,7 +1760,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler + Elasticity 3D Serum',
     category: { vi: 'Tinh Chất Chống Lão Hóa 3 Tác Động', en: 'Triple-Action Anti-Aging Serum' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'dark spots', 'firmness'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/p/6/p6q7r8s9-0t1u-2v3w-4x5y-6z7a8b9c0d1e-3d-serum.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/3d-serum',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%203D%20Serum%2030ml',
     shortDescription: {
@@ -1774,7 +1774,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler + Elasticity Night Care',
     category: { vi: 'Kem Dưỡng Đêm Chống Chảy Xệ', en: 'Firming Anti-Sagging Night Care' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'firmness'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/q/7/q7r8s9t0-1u2v-3w4x-5y6z-7a8b9c0d1e2f-night-care.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/night-care',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%20Night%20Care%2050ml',
     shortDescription: {
@@ -1788,7 +1788,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Ato Control Face Cream',
     category: { vi: 'Kem Dưỡng Phục Hồi Hàng Rào Bảo Vệ', en: 'Barrier Recovery Face Cream' },
     concernTags: ['sensitive skin', 'irritation', 'redness', 'dryness'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/r/8/r8s9t0u1-2v3w-4x5y-6z7a-8b9c0d1e2f3g-ato-control.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/atopicontrol/face-care-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Ato%20Control%20Face%20Cream%2050ml',
     shortDescription: {
@@ -1802,7 +1802,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin pH5 Sensitive Skin Facial Cleanser',
     category: { vi: 'Sữa Rửa Mặt Da Nhạy Cảm', en: 'Sensitive Skin Facial Cleanser' },
     concernTags: ['sensitive skin', 'irritation', 'redness'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/s/9/s9t0u1v2-3w4x-5y6z-7a8b-9c0d1e2f3g4h-ph5-cleanser.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20pH5%20Sensitive%20Skin%20Facial%20Cleanser',
     shortDescription: {
@@ -1816,7 +1816,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Pro Acne Cleansing Foam',
     category: { vi: 'Sữa Rửa Mặt Tạo Bọt Da Mụn', en: 'Acne Foaming Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/t/0/t0u1v2w3-4x5y-6z7a-8b9c-0d1e2f3g4h5i-cleansing-foam.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Pro%20Acne%20Cleansing%20Foam%2050g',
     shortDescription: {
@@ -1830,7 +1830,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Purifying Toner',
     category: { vi: 'Nước Cân Bằng Da Mụn', en: 'Acne Skin Purifying Toner' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/u/1/u1v2w3x4-5y6z-7a8b-9c0d-1e2f3g4h5i6j-toner.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Clinical%20Purifying%20Toner%20200ml',
     shortDescription: {
@@ -1844,7 +1844,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Correcting Gel To Foam',
     category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Correcting Gel-to-Foam Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/v/2/v2w3x4y5-6z7a-8b9c-0d1e-2f3g4h5i6j7k-gel-foam.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Correcting%20Gel%20To%20Foam%2075ml',
     shortDescription: {
@@ -1858,7 +1858,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Ultra Sensitive Repair Serum',
     category: { vi: 'Tinh Chất Phục Hồi Da Nhạy Cảm', en: 'Sensitive Skin Repair Serum' },
     concernTags: ['sensitive skin', 'irritation', 'redness', 'dehydration'],
-    imageUrl: '',
+    imageUrl: 'https://www.eucerin.vn/media/_/w/3/w3x4y5z6-7a8b-9c0d-1e2f-3g4h5i6j7k8l-repair-serum.png?im=Resize,width=400',
     eucerinUrl: 'https://www.eucerin.vn/san-pham',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Ultra%20Sensitive%20Repair%20Serum%2030ml',
     shortDescription: {
@@ -2219,6 +2219,11 @@ function ResultsStep({ skinType, aiAnalysis, lang, onContinue }) {
 function SendResultsPage({ aiAnalysis, lang, onBack }) {
   const t = SEND_CONTENT[lang] || SEND_CONTENT.vi
   const [phone, setPhone] = useState('')
+  const [apiKey, setApiKey] = useState(import.meta.env.VITE_TEXTBEE_API_KEY || '')
+  const [deviceId, setDeviceId] = useState(import.meta.env.VITE_TEXTBEE_DEVICE_ID || '')
+  const [showApiConfig, setShowApiConfig] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendStatus, setSendStatus] = useState('')
 
   const skinAge       = aiAnalysis?.skinAge
   const confidence    = aiAnalysis?.confidence
@@ -2238,6 +2243,46 @@ function SendResultsPage({ aiAnalysis, lang, onBack }) {
 
   const zaloOAUrl  = 'https://zalo.me/eucerin'
   const zaloSendUrl = 'https://zalo.me/eucerin'
+
+  // Send SMS via textbee.dev API
+  const sendViaTextbee = async () => {
+    if (!phone || !apiKey || !deviceId) {
+      setSendStatus(lang === 'vi' ? 'Vui lòng nhập số điện thoại, API key và Device ID' : 'Please enter phone number, API key and Device ID')
+      return
+    }
+
+    // Format phone number to E.164 format (add + if missing)
+    const formattedPhone = phone.startsWith('+') ? phone : `+${phone}`
+
+    setSending(true)
+    setSendStatus('')
+
+    try {
+      const response = await fetch(`https://api.textbee.dev/api/v1/gateway/devices/${deviceId}/send-sms`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey
+        },
+        body: JSON.stringify({
+          recipients: [formattedPhone],
+          message: smsBody
+        })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSendStatus(lang === 'vi' ? 'Đã gửi SMS thành công!' : 'SMS sent successfully!')
+      } else {
+        setSendStatus(lang === 'vi' ? `Lỗi: ${data.message || 'Không thể gửi SMS'}` : `Error: ${data.message || 'Failed to send SMS'}`)
+      }
+    } catch (error) {
+      setSendStatus(lang === 'vi' ? `Lỗi kết nối: ${error.message}` : `Connection error: ${error.message}`)
+    } finally {
+      setSending(false)
+    }
+  }
 
   return (
     <motion.div {...fade} className="min-h-[calc(100vh-4rem)] bg-muted/30 flex items-start justify-center">
@@ -2290,8 +2335,77 @@ function SendResultsPage({ aiAnalysis, lang, onBack }) {
             </div>
           </div>
 
+          {/* API Configuration Toggle */}
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium text-foreground">
+              {lang === 'vi' ? 'Cấu hình SMS API' : 'SMS API Configuration'}
+            </span>
+            <button
+              onClick={() => setShowApiConfig(!showApiConfig)}
+              className="text-xs font-medium text-primary hover:underline"
+            >
+              {showApiConfig ? (lang === 'vi' ? 'Ẩn' : 'Hide') : (lang === 'vi' ? 'Hiện' : 'Show')}
+            </button>
+          </div>
+
+          {/* API Configuration Fields */}
+          {showApiConfig && (
+            <div className="space-y-3 rounded-xl border border-border bg-muted/30 p-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-foreground">
+                  {lang === 'vi' ? 'Textbee API Key' : 'Textbee API Key'}
+                </label>
+                <input
+                  type="password"
+                  value={apiKey}
+                  onChange={e => setApiKey(e.target.value)}
+                  placeholder={lang === 'vi' ? 'Nhập API key của bạn' : 'Enter your API key'}
+                  className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-foreground">
+                  {lang === 'vi' ? 'Device ID' : 'Device ID'}
+                </label>
+                <input
+                  type="text"
+                  value={deviceId}
+                  onChange={e => setDeviceId(e.target.value)}
+                  placeholder={lang === 'vi' ? 'Nhập Device ID của bạn' : 'Enter your Device ID'}
+                  className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Send Status */}
+          {sendStatus && (
+            <div className={`text-center text-sm ${sendStatus.includes('thành công') || sendStatus.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+              {sendStatus}
+            </div>
+          )}
+
           {/* Action buttons */}
           <div className="space-y-3">
+            <button
+              onClick={sendViaTextbee}
+              disabled={sending}
+              className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold text-white shadow transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ backgroundColor: '#22c55e' }}
+            >
+              {sending ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  {lang === 'vi' ? 'Đang gửi...' : 'Sending...'}
+                </>
+              ) : (
+                <>
+                  <Send className="h-4 w-4" />
+                  {lang === 'vi' ? 'Gửi qua SMS' : 'Send via SMS'}
+                </>
+              )}
+            </button>
+
             <a
               href={zaloSendUrl}
               target="_blank"
@@ -2301,15 +2415,6 @@ function SendResultsPage({ aiAnalysis, lang, onBack }) {
             >
               <Send className="h-4 w-4" />
               {t.sendZalo}
-            </a>
-
-            <a
-              href={smsHref}
-              className="flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-sm font-bold text-white shadow transition-opacity hover:opacity-90"
-              style={{ backgroundColor: '#22c55e' }}
-            >
-              <Phone className="h-4 w-4" />
-              {t.sendSMS}
             </a>
 
             <a
