@@ -424,6 +424,23 @@ function ConsentStep({ onContinue, lang }) {
 function CameraStep({ onCapture, lang }) {
   const t = CAMERA_CONTENT[lang] || CAMERA_CONTENT.vi
 
+  // Resize + compress a data URL to max 1024px on the longest side before sending to OpenAI.
+  // Keeps validation reliable on mobile where camera-roll photos can be 10–12 MP.
+  const resizeImage = (dataUrl, maxDim = 1024, quality = 0.85) =>
+    new Promise(resolve => {
+      const img = new Image()
+      img.onload = () => {
+        const scale = Math.min(1, maxDim / Math.max(img.width, img.height))
+        const w = Math.round(img.width  * scale)
+        const h = Math.round(img.height * scale)
+        const c = document.createElement('canvas')
+        c.width = w; c.height = h
+        c.getContext('2d').drawImage(img, 0, 0, w, h)
+        resolve(c.toDataURL('image/jpeg', quality))
+      }
+      img.src = dataUrl
+    })
+
   const [uploadMode,   setUploadMode]  = useState(true)   // true=upload, false=camera
   const [cameraPhase,  setCameraPhase] = useState('idle') // idle|loading|live|error
   const [captureIdx,   setCaptureIdx]  = useState(0)
@@ -484,7 +501,8 @@ function CameraStep({ onCapture, lang }) {
     setPendingPhoto(url)
     setValidError('')
     try {
-      const result = await validatePhoto(url)
+      const compressed = await resizeImage(url)
+      const result = await validatePhoto(compressed)
       if (result.valid) {
         setPhotos(prev => { const n = [...prev]; n[idx] = url; return n })
         if (idx < 2) setCaptureIdx(i => i + 1)
@@ -492,9 +510,8 @@ function CameraStep({ onCapture, lang }) {
         setValidError(t.validErr)
       }
     } catch {
-      // Network / API failure — fail open so users aren't blocked
-      setPhotos(prev => { const n = [...prev]; n[idx] = url; return n })
-      if (idx < 2) setCaptureIdx(i => i + 1)
+      // API / network failure — fail closed so bad photos don't slip through
+      setValidError(t.validErr)
     } finally {
       setValidating(false)
       setPendingPhoto(null)
