@@ -124,7 +124,10 @@ MAIN CONCERN — provide the user's single most notable skin concern as two tran
 - primaryConcernVi: short phrase in Vietnamese (max 8 words)
 - primaryConcernEn: short phrase in English (max 8 words)
 
-LANGUAGE — the app is currently in "${lang === 'vi' ? 'Vietnamese' : 'English'}". Write headline, description, issues, and advice in ${lang === 'vi' ? 'Vietnamese' : 'English'}.
+BILINGUAL TEXT — always return BOTH Vietnamese and English for headline, description, and advice so the app can switch languages without re-calling the API:
+- headlineVi / headlineEn: 6–10 words summarising the skin condition
+- descriptionVi / descriptionEn: 2–3 sentences about visible skin characteristics
+- adviceVi / adviceEn: one specific, actionable skincare tip
 
 SKIN SCORES — rate each dimension 0–100:
 - hydration (0–100, higher = better): moisture level visible in skin plumpness and texture
@@ -144,10 +147,12 @@ Respond ONLY with valid JSON (no markdown):
   "primaryConcernVi": "<short phrase in Vietnamese>",
   "primaryConcernEn": "<short phrase in English>",
   "detectedConcerns": ["<concern1>", "<concern2>"],
-  "headline": "<6–10 words in the app language>",
-  "description": "<2–3 sentences in the app language about visible characteristics>",
-  "issues": ["<visible issue 1>", "<visible issue 2>", "<visible issue 3>"],
-  "advice": "<one specific, actionable tip in the app language>",
+  "headlineVi": "<6–10 words in Vietnamese>",
+  "headlineEn": "<6–10 words in English>",
+  "descriptionVi": "<2–3 sentences in Vietnamese about visible characteristics>",
+  "descriptionEn": "<2–3 sentences in English about visible characteristics>",
+  "adviceVi": "<one actionable tip in Vietnamese>",
+  "adviceEn": "<one actionable tip in English>",
   "scores": {
     "hydration": <0-100>,
     "firmness": <0-100>,
@@ -164,7 +169,7 @@ Respond ONLY with valid JSON (no markdown):
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
     body: JSON.stringify({
       model: 'gpt-4o',
-      max_tokens: 1000,
+      max_tokens: 1400,
       messages: [{
         role: 'user',
         content: [

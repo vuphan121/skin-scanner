@@ -2125,7 +2125,10 @@ function ResultsStep({ skinType, aiAnalysis, lang, onContinue }) {
           <div className="rounded-2xl bg-card shadow-lg" style={{ borderLeft: '4px solid oklch(0.4 0.15 15)' }}>
             <div className="p-6">
               <p className="text-lg leading-relaxed text-foreground">
-                {aiAnalysis?.description || aiAnalysis?.headline || '—'}
+                {lang === 'vi'
+                  ? (aiAnalysis?.descriptionVi || aiAnalysis?.description || aiAnalysis?.headlineVi || aiAnalysis?.headline || '—')
+                  : (aiAnalysis?.descriptionEn || aiAnalysis?.description || aiAnalysis?.headlineEn || aiAnalysis?.headline || '—')
+                }
               </p>
             </div>
           </div>
