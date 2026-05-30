@@ -1522,7 +1522,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler Epicelline Serum',
     category: { vi: 'Tinh Chất Chống Lão Hóa Thế Hệ Mới', en: 'Next-Gen Anti-Aging Serum' },
     concernTags: ['anti-aging', 'fine lines', 'wrinkles', 'firmness', 'hydration', 'radiance', 'texture'],
-    imageUrl: 'https://www.eucerin.vn/media/d/a/daca8ee6-7c74-4c9e-bf4c-1bc33d26af3e-image-hyaluron-filler-epicelline-serum-image-1.png?im=Resize,width=400',
+    imageUrl: '/products/epicelline-serum.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham',
     shopeeUrl: 'https://shopee.vn/Tinh-ch%E1%BA%A5t-gi%C3%BAp-gi%E1%BA%A3m-d%E1%BA%A5u-hi%E1%BB%87u-l%C3%A3o-h%C3%B3a-Eucerin-Hyaluron-Filler-Epicelline-Serum-30ml-i.82297261.26173166984',
     shortDescription: {
@@ -1536,7 +1536,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Cleanser',
     category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Gel Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'large pores', 'texture'],
-    imageUrl: 'https://www.eucerin.vn/media/_/f/6/f6c8e8a2-5c7a-4f9e-8b3d-2e1f4a5c6d7e-dermopure-clinical-cleanser.png?im=Resize,width=400',
+    imageUrl: '/products/dermopure-cleanser.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/cleanser',
     shopeeUrl: 'https://shopee.vn/Gel-r%E1%BB%ADa-m%E1%BA%B7t-Eucerin%C2%AE-DermoPure-Clinical-Purifying-Cleanser-200ml-i.82297261.1464762135',
     shortDescription: {
@@ -1550,7 +1550,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Scrub',
     category: { vi: 'Tẩy Tế Bào Chết Da Mụn', en: 'Acne Skin Exfoliating Scrub' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores', 'texture'],
-    imageUrl: 'https://www.eucerin.vn/media/_/a/1/a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p-dermopure-scrub.png?im=Resize,width=400',
+    imageUrl: '/products/dermopure-scrub.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/scrub',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=DermoPure+Clinical+Scrub',
     shortDescription: {
@@ -1564,7 +1564,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure A.I Clearing Treatment',
     category: { vi: 'Tinh Chất Đặc Trị Mụn', en: 'Acne Clearing Treatment' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'blackheads', 'texture', 'post-acne dark spots'],
-    imageUrl: 'https://www.eucerin.vn/media/_/b/2/b2c3d4e5-6f7g-8h9i-0j1k-2l3m4n5o6p7q-ai-clearing-treatment.png?im=Resize,width=400',
+    imageUrl: '/products/dermopure-clearing-treatment.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermopure-clinical/skin-renewal-treatment',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20AI%20Clearing%20Treatment%2040ml',
     shortDescription: {
@@ -1578,7 +1578,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Booster Serum',
     category: { vi: 'Tinh Chất Giảm Thâm Nám & Dưỡng Sáng', en: 'Dark Spot Brightening Serum' },
     concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots', 'uneven skin tone', 'dull skin'],
-    imageUrl: 'https://www.eucerin.vn/media/_/c/3/c3d4e5f6-7g8h-9i0j-1k2l-3m4n5o6p7q8r-spotless-booster-serum.png?im=Resize,width=400',
+    imageUrl: '/products/spotless-booster-serum.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spotless-brightening-booster-serum',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Booster%20Serum%2030ml',
     shortDescription: {
@@ -1592,7 +1592,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Spot Corrector',
     category: { vi: 'Bút Chấm Đặc Trị Đốm Nâu', en: 'Targeted Dark Spot Corrector' },
     concernTags: ['dark spots', 'hyperpigmentation', 'melasma', 'post-acne dark spots'],
-    imageUrl: 'https://www.eucerin.vn/media/_/d/4/d4e5f6g7-8h9i-0j1k-2l3m-4n5o6p7q8r9s-spot-corrector.png?im=Resize,width=400',
+    imageUrl: '/products/spotless-spot-corrector.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/spot-corrector',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spot%20Corrector%205ml',
     shortDescription: {
@@ -1620,7 +1620,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Spotless Brightening Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Sáng Da', en: 'Brightening Night Cream' },
     concernTags: ['dark spots', 'hyperpigmentation', 'uneven skin tone', 'dull skin'],
-    imageUrl: 'https://www.eucerin.vn/media/_/f/6/f6g7h8i9-0j1k-2l3m-4n5o-6p7q8r9s0t1u-night-cream.png?im=Resize,width=400',
+    imageUrl: '/products/spotless-night-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/spotless-brightening/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Spotless%20Brightening%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1634,7 +1634,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler Eye Cream SPF15',
     category: { vi: 'Kem Mắt Chống Lão Hóa SPF15', en: 'Anti-Aging Eye Cream SPF15' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging'],
-    imageUrl: 'https://www.eucerin.vn/media/_/g/7/g7h8i9j0-1k2l-3m4n-5o6p-7q8r9s0t1u2v-eye-cream.png?im=Resize,width=400',
+    imageUrl: '/products/hf-eye-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/kem-duong-da-vung-mat',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Eye%20Cream%20SPF15%2015ml',
     shortDescription: {
@@ -1648,7 +1648,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Cấp Ẩm Chống Lão Hóa', en: 'Hydrating Anti-Aging Night Cream' },
     concernTags: ['fine lines', 'wrinkles', 'hydration', 'dehydration', 'anti-aging'],
-    imageUrl: 'https://www.eucerin.vn/media/_/h/8/h8i9j0k1-2l3m-4n5o-6p7q-8r9s0t1u2v3w-night-cream-hf.png?im=Resize,width=400',
+    imageUrl: '/products/hf-night-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/hyaluron-filler/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1662,7 +1662,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Fluid Photoaging Control SPF50',
     category: { vi: 'Chống Nắng Chống Lão Hóa SPF50', en: 'Anti-Aging Sunscreen SPF50' },
     concernTags: ['UV protection', 'anti-aging', 'fine lines', 'dull skin', 'radiance'],
-    imageUrl: 'https://www.eucerin.vn/media/_/i/9/i9j0k1l2-3m4n-5o6p-7q8r-9s0t1u2v3w4x-sun-fluid.png?im=Resize,width=400',
+    imageUrl: '/products/sun-fluid-photoaging.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-photoaging-control-spf-50',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Fluid%20Photoaging%20Control%20SPF50%2050ml',
     shortDescription: {
@@ -1676,7 +1676,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Serum Pigment Control SPF50+',
     category: { vi: 'Chống Nắng Giảm Thâm Nám SPF50+', en: 'Anti-Pigment Sunscreen Serum SPF50+' },
     concernTags: ['UV protection', 'dark spots', 'hyperpigmentation', 'melasma', 'uneven skin tone'],
-    imageUrl: 'https://www.eucerin.vn/media/_/j/0/j0k1l2m3-4n5o-6p7q-8r9s-0t1u2v3w4x5y-sun-serum.png?im=Resize,width=400',
+    imageUrl: '/products/sun-serum-pigment-control.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-fluid-pigment-control-spf-50',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Serum%20Pigment%20Control%20SPF50%2B%2050ml',
     shortDescription: {
@@ -1704,7 +1704,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Sun Gel-Creme Dry Touch SPF50+',
     category: { vi: 'Chống Nắng Khô Thoáng Da Nhờn SPF50+', en: 'Dry-Touch Sunscreen for Oily Skin SPF50+' },
     concernTags: ['excess oil', 'acne', 'clogged pores', 'UV protection'],
-    imageUrl: 'https://www.eucerin.vn/media/_/l/2/l2m3n4o5-6p7q-8r9s-0t1u-2v3w4x5y6z7a-gel-creme.png?im=Resize,width=400',
+    imageUrl: '/products/sun-gel-creme-dry-touch.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/sun-protection/sun-gel-creme-dry-touch-spf-50plus',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Sun%20Gel%20Creme%20Dry%20Touch%20SPF50%2B%2050ml',
     shortDescription: {
@@ -1718,7 +1718,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermatoCLEAN Micellar Water 3 in 1',
     category: { vi: 'Nước Tẩy Trang 3 Trong 1', en: '3-in-1 Micellar Cleansing Water' },
     concernTags: ['sensitive skin', 'dryness', 'dehydration', 'irritation'],
-    imageUrl: 'https://www.eucerin.vn/media/_/m/3/m3n4o5p6-7q8r-9s0t-1u2v-3w4x5y6z7a8b-micellar.png?im=Resize,width=400',
+    imageUrl: '/products/dermato-clean-micellar.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/dermato-clean/dermatoclean-%5Bhyaluron%5D-micellar-water-3-in-1',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermatoCLEAN%20Micellar%203in1%20400ml',
     shortDescription: {
@@ -1732,7 +1732,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Lipo Balance Intensive Nourishing Cream',
     category: { vi: 'Kem Dưỡng Ẩm Chuyên Sâu Da Khô', en: 'Intensive Nourishing Cream for Dry Skin' },
     concernTags: ['dryness', 'dehydration', 'sensitive skin'],
-    imageUrl: 'https://www.eucerin.vn/media/_/n/4/n4o5p6q7-8r9s-0t1u-2v3w-4x5y6z7a8b9c-lipo-balance.png?im=Resize,width=400',
+    imageUrl: '/products/lipo-balance-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/lipo-balance/san-pham-lipo-balance',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Lipo%20Balance%20Intensive%20Nourishing%20Cream%2050ml',
     shortDescription: {
@@ -1746,7 +1746,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Q10 Active Night Cream',
     category: { vi: 'Kem Dưỡng Đêm Chống Lão Hóa Sớm', en: 'Early Anti-Aging Night Cream Q10' },
     concernTags: ['fine lines', 'anti-aging', 'sensitive skin'],
-    imageUrl: 'https://www.eucerin.vn/media/_/o/5/o5p6q7r8-9s0t-1u2v-3w4x-5y6z7a8b9c0d-q10-night.png?im=Resize,width=400',
+    imageUrl: '/products/q10-night-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/q10-active/night-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Q10%20Active%20Night%20Cream%2050ml',
     shortDescription: {
@@ -1760,7 +1760,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler + Elasticity 3D Serum',
     category: { vi: 'Tinh Chất Chống Lão Hóa 3 Tác Động', en: 'Triple-Action Anti-Aging Serum' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'dark spots', 'firmness'],
-    imageUrl: 'https://www.eucerin.vn/media/_/p/6/p6q7r8s9-0t1u-2v3w-4x5y-6z7a8b9c0d1e-3d-serum.png?im=Resize,width=400',
+    imageUrl: '/products/hf-elasticity-3d-serum.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/3d-serum',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%203D%20Serum%2030ml',
     shortDescription: {
@@ -1774,7 +1774,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Hyaluron-Filler + Elasticity Night Care',
     category: { vi: 'Kem Dưỡng Đêm Chống Chảy Xệ', en: 'Firming Anti-Sagging Night Care' },
     concernTags: ['fine lines', 'wrinkles', 'anti-aging', 'firmness'],
-    imageUrl: 'https://www.eucerin.vn/media/_/q/7/q7r8s9t0-1u2v-3w4x-5y6z-7a8b9c0d1e2f-night-care.png?im=Resize,width=400',
+    imageUrl: '/products/hf-elasticity-night-care.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/elasticity-filler/night-care',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Hyaluron-Filler%20Elasticity%20Night%20Care%2050ml',
     shortDescription: {
@@ -1788,7 +1788,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Ato Control Face Cream',
     category: { vi: 'Kem Dưỡng Phục Hồi Hàng Rào Bảo Vệ', en: 'Barrier Recovery Face Cream' },
     concernTags: ['sensitive skin', 'irritation', 'redness', 'dryness'],
-    imageUrl: 'https://www.eucerin.vn/media/_/r/8/r8s9t0u1-2v3w-4x5y-6z7a-8b9c0d1e2f3g-ato-control.png?im=Resize,width=400',
+    imageUrl: '/products/ato-control-face-cream.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/atopicontrol/face-care-cream',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Ato%20Control%20Face%20Cream%2050ml',
     shortDescription: {
@@ -1802,7 +1802,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin pH5 Sensitive Skin Facial Cleanser',
     category: { vi: 'Sữa Rửa Mặt Da Nhạy Cảm', en: 'Sensitive Skin Facial Cleanser' },
     concernTags: ['sensitive skin', 'irritation', 'redness'],
-    imageUrl: 'https://www.eucerin.vn/media/_/s/9/s9t0u1v2-3w4x-5y6z-7a8b-9c0d1e2f3g4h-ph5-cleanser.png?im=Resize,width=400',
+    imageUrl: '/products/ph5-facial-cleanser.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20pH5%20Sensitive%20Skin%20Facial%20Cleanser',
     shortDescription: {
@@ -1816,7 +1816,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin Pro Acne Cleansing Foam',
     category: { vi: 'Sữa Rửa Mặt Tạo Bọt Da Mụn', en: 'Acne Foaming Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores'],
-    imageUrl: 'https://www.eucerin.vn/media/_/t/0/t0u1v2w3-4x5y-6z7a-8b9c-0d1e2f3g4h5i-cleansing-foam.png?im=Resize,width=400',
+    imageUrl: '/products/proacne-cleansing-foam.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20Pro%20Acne%20Cleansing%20Foam%2050g',
     shortDescription: {
@@ -1830,7 +1830,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Purifying Toner',
     category: { vi: 'Nước Cân Bằng Da Mụn', en: 'Acne Skin Purifying Toner' },
     concernTags: ['acne', 'excess oil', 'clogged pores', 'large pores'],
-    imageUrl: 'https://www.eucerin.vn/media/_/u/1/u1v2w3x4-5y6z-7a8b-9c0d-1e2f3g4h5i6j-toner.png?im=Resize,width=400',
+    imageUrl: '/products/dermopure-toner.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Clinical%20Purifying%20Toner%20200ml',
     shortDescription: {
@@ -1844,7 +1844,7 @@ const EUCERIN_PRODUCTS = [
     name: 'Eucerin DermoPure Clinical Correcting Gel To Foam',
     category: { vi: 'Gel Rửa Mặt Da Mụn', en: 'Acne Correcting Gel-to-Foam Cleanser' },
     concernTags: ['acne', 'excess oil', 'clogged pores'],
-    imageUrl: 'https://www.eucerin.vn/media/_/v/2/v2w3x4y5-6z7a-8b9c-0d1e-2f3g4h5i6j7k-gel-foam.png?im=Resize,width=400',
+    imageUrl: '/products/dermopure-gel-to-foam.png',
     eucerinUrl: 'https://www.eucerin.vn/san-pham/pro-acne',
     shopeeUrl: 'https://shopee.vn/eucerin.officialstore?keyword=Eucerin%20DermoPure%20Correcting%20Gel%20To%20Foam%2075ml',
     shortDescription: {
